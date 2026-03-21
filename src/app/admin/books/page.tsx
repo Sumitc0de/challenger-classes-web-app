@@ -40,7 +40,7 @@ export default function AdminBooksUpload() {
           <div className="space-y-8">
             {/* Image Upload */}
             <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
-              <h2 className="text-xl font-bold mb-4 text-[#10192F]">1. Upload Book Cover (Image)</h2>
+              <h2 className="text-xl font-bold mb-4 text-[#10192F]">1. Upload Book Cover <span className="text-gray-400 font-normal text-sm block mt-1">(Optional - falls back to default icon)</span></h2>
               <IKUpload
                 folder="/books/covers"
                 onSuccess={(res: any) => setUploadedImage(res.url)}

@@ -4,95 +4,163 @@ import { useState } from "react";
 import SectionHeader from "@/components/SectionHeader";
 import CTABanner from "@/components/CTABanner";
 
-const IMAGEKIT_ENDPOINT = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT || "https://ik.imagekit.io/akpxh7r76";
-
 const books10 = [
   {
     title: "Mathematics Part I",
     class: "10th Standard",
     board: "SSC",
     subject: "Maths",
-    size: "12.4 MB",
+    size: "5.2 MB",
     color: "from-blue-500 to-indigo-600",
     icon: "📐",
     desc: "Algebra & Problem Solving",
-    imageUrl: `${IMAGEKIT_ENDPOINT}/books/covers/ssc-maths-1.png`,
-    fileUrl: `${IMAGEKIT_ENDPOINT}/books/pdfs/ssc-maths-1.pdf`
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/10th_maths_1_mlTOr2J8C.pdf"
   },
   {
     title: "Mathematics Part II",
     class: "10th Standard",
     board: "SSC",
     subject: "Geometry",
-    size: "11.8 MB",
+    size: "11.4 MB",
     color: "from-blue-400 to-indigo-500",
     icon: "📐",
     desc: "Geometry & Theorems",
-    imageUrl: `${IMAGEKIT_ENDPOINT}/books/covers/ssc-maths-2.png`,
-    fileUrl: `${IMAGEKIT_ENDPOINT}/books/pdfs/ssc-maths-2.pdf`
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/10th_maths_2_PGEHJWhhD.pdf"
   },
   {
     title: "Science & Tech Part I",
     class: "10th Standard",
     board: "SSC",
     subject: "Science",
-    size: "15.2 MB",
+    size: "8.5 MB",
     color: "from-green-500 to-emerald-600",
     icon: "🧪",
     desc: "Physics & Chemistry Basics",
-    imageUrl: `${IMAGEKIT_ENDPOINT}/books/covers/ssc-science-1.png`,
-    fileUrl: `${IMAGEKIT_ENDPOINT}/books/pdfs/ssc-science-1.pdf`
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/10th_science_1_A3039JzMD.pdf"
   },
   {
     title: "Science & Tech Part II",
     class: "10th Standard",
     board: "SSC",
     subject: "Biology",
-    size: "18.1 MB",
+    size: "14.0 MB",
     color: "from-green-400 to-emerald-500",
     icon: "🌿",
     desc: "Biology & Environment",
-    imageUrl: `${IMAGEKIT_ENDPOINT}/books/covers/ssc-science-2.png`,
-    fileUrl: `${IMAGEKIT_ENDPOINT}/books/pdfs/ssc-science-2.pdf`
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/10th_science_2_DdXNQwOxL.pdf"
+  },
+  {
+    title: "English Kumarbharati",
+    class: "10th Standard",
+    board: "SSC",
+    subject: "English",
+    size: "18.1 MB",
+    color: "from-orange-400 to-red-500",
+    icon: "📖",
+    desc: "Language & Literature",
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/10th_english_DN48OU2jW.pdf"
+  },
+  {
+    title: "Hindi Lokbharati",
+    class: "10th Standard",
+    board: "SSC",
+    subject: "Hindi",
+    size: "12.4 MB",
+    color: "from-yellow-400 to-orange-500",
+    icon: "📝",
+    desc: "Hindi Language Skills",
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/10th_hindi_FcGyLMc2N.pdf"
+  },
+  {
+    title: "Marathi Aksharbharati",
+    class: "10th Standard",
+    board: "SSC",
+    subject: "Marathi",
+    size: "25.7 MB",
+    color: "from-pink-400 to-rose-500",
+    icon: "✍️",
+    desc: "Marathi Language Arts",
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/10th_marathi__jLbhdB6H.pdf"
+  },
+  {
+    title: "History & Pol. Science",
+    class: "10th Standard",
+    board: "SSC",
+    subject: "History",
+    size: "8.0 MB",
+    color: "from-amber-400 to-brown-500",
+    icon: "🏰",
+    desc: "Historical Timelines",
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/10th_history_NxHPMTywJ.pdf"
+  },
+  {
+    title: "Geography",
+    class: "10th Standard",
+    board: "SSC",
+    subject: "Geography",
+    size: "14.2 MB",
+    color: "from-blue-300 to-cyan-500",
+    icon: "🌍",
+    desc: "Maps & Geographical study",
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/10th_geography_3KzjPg4Tb.pdf"
   },
 ];
 
 const books12Sci = [
   {
-    title: "Physics Volume I",
+    title: "Physics",
     class: "12th Science",
     board: "HSC",
     subject: "Physics",
-    size: "24.5 MB",
+    size: "17.8 MB",
     color: "from-purple-500 to-violet-600",
     icon: "⚛️",
     desc: "Dynamics & Mechanics",
-    imageUrl: `${IMAGEKIT_ENDPOINT}/books/covers/hsc-physics-1.png`,
-    fileUrl: `${IMAGEKIT_ENDPOINT}/books/pdfs/hsc-physics-1.pdf`
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/12th_physics_jweccjaFS.pdf"
   },
   {
-    title: "Chemistry Volume II",
+    title: "Chemistry",
     class: "12th Science",
     board: "HSC",
     subject: "Chemistry",
-    size: "21.2 MB",
+    size: "27.4 MB",
     color: "from-pink-500 to-rose-600",
     icon: "⚗️",
     desc: "Organic & Physical Chem",
-    imageUrl: `${IMAGEKIT_ENDPOINT}/books/covers/hsc-chemistry-2.png`,
-    fileUrl: `${IMAGEKIT_ENDPOINT}/books/pdfs/hsc-chemistry-2.pdf`
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/12th_chemistry_pAnD2H_3_.pdf"
   },
   {
-    title: "Biology Part I",
+    title: "Mathematics Part I",
     class: "12th Science",
     board: "HSC",
-    subject: "Biology",
-    size: "20.8 MB",
-    color: "from-emerald-500 to-teal-600",
-    icon: "🧬",
-    desc: "Botany & Genetics",
-    imageUrl: `${IMAGEKIT_ENDPOINT}/books/covers/hsc-biology-1.png`,
-    fileUrl: `${IMAGEKIT_ENDPOINT}/books/pdfs/hsc-biology-1.pdf`
+    subject: "Maths",
+    size: "4.7 MB",
+    color: "from-blue-600 to-indigo-700",
+    icon: "➗",
+    desc: "Advanced Calculus",
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/12th_maths1_Em51R91h0.pdf"
+  },
+  {
+    title: "Mathematics Part II",
+    class: "12th Science",
+    board: "HSC",
+    subject: "Maths",
+    size: "10.9 MB",
+    color: "from-indigo-600 to-blue-700",
+    icon: "🔢",
+    desc: "Integration & Statistics",
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/12th_maths2_5tIWBT2pM.pdf"
+  },
+  {
+    title: "Information Technology",
+    class: "12th Standard",
+    board: "HSC",
+    subject: "IT",
+    size: "8.0 MB",
+    color: "from-cyan-500 to-blue-500",
+    icon: "💻",
+    desc: "Computers & Coding",
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/12th_it_LXWs_Z5FR.pdf"
   },
 ];
 
@@ -102,36 +170,33 @@ const books12Comm = [
     class: "12th Commerce",
     board: "HSC",
     subject: "Accounts",
-    size: "15.8 MB",
+    size: "4.8 MB",
     color: "from-amber-500 to-blue-700",
     icon: "📊",
     desc: "Practical Bookkeepings",
-    imageUrl: `${IMAGEKIT_ENDPOINT}/books/covers/hsc-accounts.png`,
-    fileUrl: `${IMAGEKIT_ENDPOINT}/books/pdfs/hsc-accounts.pdf`
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/12th_book_and_accountancy_iDPK3To74.pdf"
   },
   {
-    title: "Economics",
-    class: "12th Commerce",
+    title: "English Yuvakbharati",
+    class: "12th Standard",
     board: "HSC",
-    subject: "Eco",
-    size: "14.2 MB",
-    color: "from-cyan-500 to-[#192F6B]",
-    icon: "📈",
-    desc: "Macro & Micro Economics",
-    imageUrl: `${IMAGEKIT_ENDPOINT}/books/covers/hsc-economics.png`,
-    fileUrl: `${IMAGEKIT_ENDPOINT}/books/pdfs/hsc-economics.pdf`
+    subject: "English",
+    size: "9.4 MB",
+    color: "from-orange-500 to-red-600",
+    icon: "📚",
+    desc: "Literature & Skills",
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/12th_english_YM-nSBEyU.pdf"
   },
   {
-    title: "Secretarial Practice",
-    class: "12th Commerce",
+    title: "Geography",
+    class: "12th Standard",
     board: "HSC",
-    subject: "SP",
-    size: "13.1 MB",
-    color: "from-[#192F6B] to-red-600",
-    icon: "💼",
-    desc: "Business Correspondence",
-    imageUrl: `${IMAGEKIT_ENDPOINT}/books/covers/hsc-sp.png`,
-    fileUrl: `${IMAGEKIT_ENDPOINT}/books/pdfs/hsc-sp.pdf`
+    subject: "Geography",
+    size: "25.5 MB",
+    color: "from-emerald-500 to-teal-600",
+    icon: "🌍",
+    desc: "Global geography",
+    fileUrl: "https://ik.imagekit.io/akpxh7r76/books/pdfs/12th_geography_qDz73kl1H.pdf"
   },
 ];
 
@@ -150,11 +215,7 @@ export default function BooksPage() {
         
         <div className="relative z-10 flex flex-col h-full">
           <div className="w-14 h-18 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-2xl shadow-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 overflow-hidden shrink-0 border border-gray-200">
-            {/* If image doesn't load or doesn't exist, we fallback to icon but here we assume the imageUrl is a valid ImageKit cover */}
-            {book.imageUrl ? (
-              <img src={book.imageUrl} alt={book.title} className="w-full h-full object-cover" onError={(e) => { (e.target as any).style.display='none'; (e.target as any).nextSibling.style.display='flex'; }} />
-            ) : null}
-            <div className={`w-full h-full flex items-center justify-center bg-gradient-to-br ${book.color} ${book.imageUrl ? 'hidden' : ''}`}>
+            <div className={`w-full h-full flex items-center justify-center bg-gradient-to-br ${book.color}`}>
                {book.icon}
             </div>
           </div>
