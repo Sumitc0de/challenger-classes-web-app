@@ -10,34 +10,35 @@ const navLinks = [
   { href: "/courses", label: "Courses" },
   { href: "/test-series", label: "Test Series" },
   { href: "/results", label: "Results" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 
 const studyLinks = [
-  { 
-    href: "/notes", 
-    label: "Notes", 
-    icon: "📝", 
-    desc: "Subject-wise study material & toppers' notes" 
+  {
+    href: "/notes",
+    label: "Notes",
+    icon: "📝",
+    desc: "Subject-wise study material & toppers' notes"
   },
-  { 
-    href: "/concepts", 
-    label: "Concepts", 
-    icon: "🧠", 
-    desc: "Master key scientific & mathematical concepts" 
+  {
+    href: "/concepts",
+    label: "Concepts",
+    icon: "🧠",
+    desc: "Master key scientific & mathematical concepts"
   },
-  { 
-    href: "/formulas", 
-    label: "Formulas", 
-    icon: "➗", 
-    desc: "Essential equations & visual derivations" 
+  {
+    href: "/formulas",
+    label: "Formulas",
+    icon: "➗",
+    desc: "Essential equations & visual derivations"
   },
-  { 
-    href: "/books", 
-    label: "Books PDF", 
-    icon: "📚", 
-    desc: "Digital library of board textbooks" 
+  {
+    href: "/books",
+    label: "Books PDF",
+    icon: "📚",
+    desc: "Digital library of board textbooks"
   },
 ];
 
@@ -55,18 +56,17 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${scrolled
           ? "shadow-md py-2"
           : "shadow-sm border-b border-gray-100 py-4"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <img 
-            src="/logo.png" 
-            alt="Challenger Classes Logo" 
+          <img
+            src="/logo.png"
+            alt="Challenger Classes Logo"
             className="w-12 h-12 md:w-14 md:h-14 object-contain rounded-full shadow-md group-hover:scale-110 transition-transform duration-300"
           />
           <div className="flex flex-col -gap-1">
@@ -85,32 +85,30 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                pathname === link.href
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === link.href
                   ? "text-[#192F6B] font-bold uppercase"
                   : "text-text-muted hover:text-primary hover:bg-black/5 uppercase"
-              }`}
+                }`}
             >
               {link.label}
             </Link>
           ))}
 
           {/* Study Hub Dropdown */}
-          <div 
+          <div
             className="relative"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
             <button
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 uppercase ${
-                studyLinks.some(link => pathname === link.href)
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 uppercase ${studyLinks.some(link => pathname === link.href)
                   ? "text-[#192F6B] font-bold"
                   : "text-text-muted hover:text-primary hover:bg-black/5"
-              }`}
+                }`}
             >
               Study Hub
-              <svg 
-                className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} 
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -118,19 +116,17 @@ export default function Navbar() {
             </button>
 
             {/* Dropdown Menu */}
-            <div className={`absolute top-full left-0 w-72 pt-2 transition-all duration-300 ${
-              dropdownOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
-            }`}>
+            <div className={`absolute top-full left-0 w-72 pt-2 transition-all duration-300 ${dropdownOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+              }`}>
               <div className="glass rounded-2xl shadow-xl border border-white/20 p-2 overflow-hidden backdrop-blur-xl">
                 {studyLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`flex items-start gap-3 p-3 rounded-xl transition-all ${
-                      pathname === link.href
+                    className={`flex items-start gap-3 p-3 rounded-xl transition-all ${pathname === link.href
                         ? "bg-[#192F6B]/10 text-[#192F6B] shadow-inner"
                         : "text-text-muted hover:text-primary hover:bg-black/5"
-                    }`}
+                      }`}
                   >
                     <span className="text-xl shrink-0 mt-0.5">{link.icon}</span>
                     <div className="flex flex-col">
@@ -151,11 +147,10 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                pathname === link.href
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === link.href
                   ? "text-[#192F6B] font-bold uppercase"
                   : "text-text-muted hover:text-primary hover:bg-black/5 uppercase"
-              }`}
+                }`}
             >
               {link.label}
             </Link>
@@ -179,28 +174,24 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${
-              open ? "rotate-45 translate-y-2" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${open ? "rotate-45 translate-y-2" : ""
+              }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${
-              open ? "opacity-0" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${open ? "opacity-0" : ""
+              }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${
-              open ? "-rotate-45 -translate-y-2" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-primary transition-all duration-300 ${open ? "-rotate-45 -translate-y-2" : ""
+              }`}
           />
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`lg:hidden transition-all duration-300 overflow-hidden ${open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <nav className="glass mx-4 mt-2 rounded-2xl p-4 flex flex-col gap-1">
           {navLinks.slice(0, 3).map((link) => (
@@ -208,11 +199,10 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className={`px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${
-                pathname === link.href
+              className={`px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${pathname === link.href
                   ? "text-[#192F6B] bg-[#192F6B]/5 font-bold uppercase"
                   : "text-text-muted hover:text-primary hover:bg-gray-50 uppercase"
-              }`}
+                }`}
             >
               {link.label}
             </Link>
@@ -227,11 +217,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg transition-all ${
-                    pathname === link.href
+                  className={`flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg transition-all ${pathname === link.href
                       ? "text-[#192F6B] bg-[#192F6B]/5 font-bold"
                       : "text-text-muted hover:text-primary hover:bg-gray-50"
-                  }`}
+                    }`}
                 >
                   <span className="text-lg">{link.icon}</span>
                   {link.label}
@@ -245,11 +234,10 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className={`px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${
-                pathname === link.href
+              className={`px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${pathname === link.href
                   ? "text-[#192F6B] bg-[#192F6B]/5 font-bold uppercase"
                   : "text-text-muted hover:text-primary hover:bg-gray-50 uppercase"
-              }`}
+                }`}
             >
               {link.label}
             </Link>
