@@ -31,7 +31,7 @@ export default function AboutPage() {
             About Challenger Classes
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
-            Nalasopara East&apos;s most trusted coaching institute, shaping academic futures since 2010.
+            Nalasopara East&apos;s most trusted coaching institute, shaping academic futures since 2014.
           </p>
         </div>
       </section>

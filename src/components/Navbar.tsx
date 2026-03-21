@@ -8,16 +8,21 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/courses", label: "Courses" },
-  { href: "/notes", label: "Notes" },
   { href: "/test-series", label: "Test Series" },
   { href: "/results", label: "Results" },
-  { href: "/gallery", label: "Gallery" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 
+const studyLinks = [
+  { href: "/notes", label: "Notes" },
+  { href: "/concepts", label: "Concepts" },
+  { href: "/formulas", label: "Formulas" },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -37,26 +42,90 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <span
-            className="text-xl lg:text-2xl font-bold font-[var(--font-display)]"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            <span className="text-accent-orange">Challenger</span>{" "}
-            <span className="text-primary">Classes</span>
-          </span>
+        <Link href="/" className="flex items-center gap-3 group">
+          <img 
+            src="/logo.png" 
+            alt="Challenger Classes Logo" 
+            className="w-12 h-12 md:w-14 md:h-14 object-contain rounded-full shadow-md group-hover:scale-110 transition-transform duration-300"
+          />
+          <div className="flex flex-col -gap-1">
+            <span className="text-lg md:text-xl font-black text-[#F97316] italic leading-tight uppercase font-[var(--font-display)]">
+              Challenger
+            </span>
+            <span className="text-xs font-bold text-primary tracking-[0.2em] uppercase opacity-70">
+              Classes
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
+          {navLinks.slice(0, 3).map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                 pathname === link.href
-                  ? "text-accent-orange"
+                  ? "text-accent-orange font-bold uppercase"
+                  : "text-text-muted hover:text-primary hover:bg-black/5 uppercase"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          {/* Study Hub Dropdown */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
+          >
+            <button
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 uppercase ${
+                studyLinks.some(link => pathname === link.href)
+                  ? "text-accent-orange font-bold"
                   : "text-text-muted hover:text-primary hover:bg-black/5"
+              }`}
+            >
+              Study Hub
+              <svg 
+                className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} 
+                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* Dropdown Menu */}
+            <div className={`absolute top-full left-0 w-48 pt-2 transition-all duration-300 ${
+              dropdownOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+            }`}>
+              <div className="glass rounded-xl shadow-xl border border-white/20 p-2 overflow-hidden">
+                {studyLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-all ${
+                      pathname === link.href
+                        ? "bg-accent-orange/10 text-accent-orange"
+                        : "text-text-muted hover:text-primary hover:bg-black/5"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {navLinks.slice(3).map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                pathname === link.href
+                  ? "text-accent-orange font-bold uppercase"
+                  : "text-text-muted hover:text-primary hover:bg-black/5 uppercase"
               }`}
             >
               {link.label}
@@ -105,15 +174,51 @@ export default function Navbar() {
         }`}
       >
         <nav className="glass mx-4 mt-2 rounded-2xl p-4 flex flex-col gap-1">
-          {navLinks.map((link) => (
+          {navLinks.slice(0, 3).map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
               className={`px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${
                 pathname === link.href
-                  ? "text-accent-orange bg-orange-50"
-                  : "text-text-muted hover:text-primary hover:bg-gray-50"
+                  ? "text-accent-orange bg-orange-50 font-bold uppercase"
+                  : "text-text-muted hover:text-primary hover:bg-gray-50 uppercase"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          {/* Mobile Study Hub Section */}
+          <div className="px-4 py-2 mt-2">
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-2">Study Hub</p>
+            <div className="grid grid-cols-1 gap-1">
+              {studyLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
+                    pathname === link.href
+                      ? "text-accent-orange bg-orange-50"
+                      : "text-text-muted hover:text-primary hover:bg-gray-50"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {navLinks.slice(3).map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className={`px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${
+                pathname === link.href
+                  ? "text-accent-orange bg-orange-50 font-bold uppercase"
+                  : "text-text-muted hover:text-primary hover:bg-gray-50 uppercase"
               }`}
             >
               {link.label}

@@ -8,6 +8,7 @@ export default function ContactForm() {
     phone: "",
     class: "",
     message: "",
+    role: "student", // default role
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -16,7 +17,7 @@ export default function ContactForm() {
     // In production, send to API
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
-    setForm({ name: "", phone: "", class: "", message: "" });
+    setForm({ name: "", phone: "", class: "", message: "", role: "student" });
   };
 
   return (
@@ -53,6 +54,37 @@ export default function ContactForm() {
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
             className="w-full px-4 py-3 rounded-xl border border-border text-sm focus:outline-none focus:ring-2 focus:ring-gradient-start/30 focus:border-gradient-start transition-all"
           />
+        </div>
+      </div>
+
+      {/* Role Selection */}
+      <div className="mb-4">
+        <label className="block text-xs font-semibold text-primary mb-2.5 uppercase tracking-wider text-center">
+          I am a...
+        </label>
+        <div className="flex p-1 bg-bg rounded-full border border-border">
+          <button
+            type="button"
+            onClick={() => setForm({ ...form, role: "student" })}
+            className={`flex-1 py-2 text-xs font-bold rounded-full transition-all duration-300 ${
+              form.role === "student"
+                ? "bg-primary text-white shadow-md"
+                : "text-text-muted hover:text-primary"
+            }`}
+          >
+            Student
+          </button>
+          <button
+            type="button"
+            onClick={() => setForm({ ...form, role: "parent" })}
+            className={`flex-1 py-2 text-xs font-bold rounded-full transition-all duration-300 ${
+              form.role === "parent"
+                ? "bg-primary text-white shadow-md"
+                : "text-text-muted hover:text-primary"
+            }`}
+          >
+            Parent
+          </button>
         </div>
       </div>
 

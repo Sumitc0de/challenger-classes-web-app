@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact Challenger Classes Nalasopara East",
   description:
-    "Get in touch with Challenger Classes for admissions, course details, and enquiries. Located on Achole Road, Nalasopara East, Palghar, Mumbai.",
+    "Get in touch with Challenger Classes for admissions, course details, and enquiries. Located at Shop No. 2A & 2B, Manoshi, Majithia Park, Nalasopara East.",
 };
 
 export default function ContactPage() {
@@ -62,7 +62,7 @@ export default function ContactPage() {
             {/* Map */}
             <div className="bg-white rounded-2xl overflow-hidden border border-border">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.5!2d72.8745!3d19.4187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNalasopara+East!5e0!3m2!1sen!2sin!4v1"
+                src="https://maps.google.com/maps?q=19.413381678589634,72.8274831295814&z=17&output=embed"
                 width="100%"
                 height="200"
                 style={{ border: 0 }}
@@ -76,7 +76,9 @@ export default function ContactPage() {
                   <span className="text-accent-orange mt-0.5">📍</span>
                   <div>
                     <p className="font-semibold text-primary text-sm">Main Branch</p>
-                    <p className="text-xs text-text-muted">Achole Road, Nalasopara East, Maharashtra 401209</p>
+                    <p className="text-xs text-text-muted">
+                      Shop No. 2A & 2B, Manoshi, Majithia Park Co-op Hsg Soc, Ambawadi, Nalasopara East, Maharashtra 401209
+                    </p>
                   </div>
                 </div>
               </div>
@@ -100,23 +102,6 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Trust badges */}
-      <section className="section-padding bg-white">
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { icon: "✅", label: "ISO Certified" },
-            { icon: "👨‍🏫", label: "Expert Faculty" },
-            { icon: "⭐", label: "Top Rated" },
-            { icon: "🏆", label: "Award Winning" },
-          ].map((b) => (
-            <div key={b.label} className="text-center">
-              <div className="text-3xl mb-2">{b.icon}</div>
-              <p className="text-sm font-medium text-text-muted">{b.label}</p>
-            </div>
-          ))}
         </div>
       </section>
     </>

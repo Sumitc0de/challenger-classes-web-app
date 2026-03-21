@@ -168,7 +168,7 @@ export default function HomePage() {
                       Challenger Classes
                     </p>
                     <p className="text-sm text-gray-300">
-                      Shaping Future Leaders Since 2010
+                      Shaping Future Leaders Since 2014
                     </p>
                     <div className="mt-6 glass-dark rounded-2xl p-4 inline-block">
                       <p className="text-xs text-gray-400 uppercase tracking-wider">

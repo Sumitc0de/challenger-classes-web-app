@@ -70,7 +70,7 @@ export default function RootLayout({
                 "Leading coaching institute for Class 10, Class 12 & competitive exams in Nalasopara East, Achole Road, Palghar, Mumbai.",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Achole Road",
+                streetAddress: "Shop No. 2A & 2B, Manoshi, Majithia Park Cooperative Housing Society, Ambawadi",
                 addressLocality: "Nalasopara East",
                 addressRegion: "Maharashtra",
                 postalCode: "401209",
@@ -78,8 +78,8 @@ export default function RootLayout({
               },
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: "19.4187",
-                longitude: "72.8745",
+                latitude: "19.413381678589634",
+                longitude: "72.8274831295814",
               },
               openingHours: "Mo-Sa 08:00-19:00",
               telephone: "+91-98765-43210",
