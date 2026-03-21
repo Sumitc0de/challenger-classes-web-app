@@ -19,7 +19,7 @@ export default function TestimonialCard({
     <div className="bg-white rounded-3xl p-6 shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
       {/* Avatar + Info */}
       <div className="flex items-center gap-4 mb-4">
-        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gradient-start to-gradient-end flex items-center justify-center text-white text-lg font-bold">
+        <div className="w-14 h-14 rounded-2xl bg-[#192F6B] flex items-center justify-center text-white text-lg font-black uppercase tracking-tighter shadow-lg shadow-[#192F6B]/20">
           {initials}
         </div>
         <div>

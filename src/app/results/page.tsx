@@ -77,7 +77,7 @@ export default function ResultsPage() {
                 key={t.name}
                 className="bg-white rounded-3xl p-6 text-center shadow-sm border border-border hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
               >
-                <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-gradient-start to-gradient-end flex items-center justify-center text-white text-2xl font-bold mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 mx-auto rounded-2xl bg-[#192F6B] flex items-center justify-center text-white text-2xl font-black uppercase tracking-tighter mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-[#192F6B]/20">
                   {t.initials}
                 </div>
                 <h3 className="font-semibold text-primary">{t.name}</h3>
