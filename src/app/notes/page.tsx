@@ -1,151 +1,155 @@
-import type { Metadata } from "next";
-import SectionHeader from "@/components/SectionHeader";
+"use client";
+
+import { useState } from "react";
 import CTABanner from "@/components/CTABanner";
 
-export const metadata: Metadata = {
-  title: "Free Study Notes for Class 10 & 12 Students",
-  description:
-    "Access high-quality study notes prepared by experienced faculty at Challenger Classes, Nalasopara East. Comprehensive notes for SSC, HSC Science & Commerce subjects.",
-};
+const subjects = ["All", "Physics", "Chemistry", "Mathematics", "Biology", "English"];
 
-const noteCategories = [
+const notes = [
   {
-    title: "Class 10 Notes",
-    icon: "📐",
-    subjects: [
-      { name: "Mathematics", chapters: 8, status: "Available" },
-      { name: "Science", chapters: 16, status: "Available" },
-      { name: "Social Studies", chapters: 12, status: "Available" },
-      { name: "English", chapters: 10, status: "Coming Soon" },
-      { name: "Hindi / Marathi", chapters: 8, status: "Coming Soon" },
-    ],
+    title: "Gravitation Full Notes",
+    subject: "Physics",
+    class: "10th Standard",
+    size: "2.4 MB",
+    type: "PDF",
+    date: "March 2025"
   },
   {
-    title: "Class 12 Science Notes",
-    icon: "🔬",
-    subjects: [
-      { name: "Physics", chapters: 16, status: "Available" },
-      { name: "Chemistry", chapters: 16, status: "Available" },
-      { name: "Mathematics", chapters: 13, status: "Available" },
-      { name: "Biology", chapters: 16, status: "Available" },
-    ],
+    title: "Chemical Reactions & Equations",
+    subject: "Chemistry",
+    class: "10th Standard",
+    size: "3.1 MB",
+    type: "PDF",
+    date: "March 2025"
   },
   {
-    title: "Class 12 Commerce Notes",
-    icon: "📊",
-    subjects: [
-      { name: "Accountancy", chapters: 12, status: "Available" },
-      { name: "Economics", chapters: 10, status: "Available" },
-      { name: "Business Studies", chapters: 12, status: "Coming Soon" },
-      { name: "OCM", chapters: 8, status: "Coming Soon" },
-    ],
+    title: "Trigonometry Basics",
+    subject: "Mathematics",
+    class: "10th Standard",
+    size: "1.8 MB",
+    type: "PDF",
+    date: "Feb 2025"
   },
   {
-    title: "Competitive Exam Notes",
-    icon: "🎯",
-    subjects: [
-      { name: "MHT-CET Physics", chapters: 15, status: "Available" },
-      { name: "MHT-CET Chemistry", chapters: 15, status: "Available" },
-      { name: "MHT-CET Maths", chapters: 12, status: "Available" },
-      { name: "JEE Formulae Sheets", chapters: 5, status: "Available" },
-    ],
+    title: "Circular Motion",
+    subject: "Physics",
+    class: "12th Science",
+    size: "4.5 MB",
+    type: "PDF",
+    date: "March 2025"
   },
+  {
+    title: "Solution & Colligative Properties",
+    subject: "Chemistry",
+    class: "12th Science",
+    size: "5.2 MB",
+    type: "PDF",
+    date: "Jan 2025"
+  },
+  {
+    title: "Matrices & Determinants",
+    subject: "Mathematics",
+    class: "12th Science",
+    size: "3.8 MB",
+    type: "PDF",
+    date: "Dec 2024"
+  }
 ];
 
 export default function NotesPage() {
-  return (
-    <>
-      {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary-light to-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-wider uppercase rounded-full bg-white/10 mb-4">
-            Study Resources
-          </span>
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Free Study Notes for Class 10 &amp; 12 Students
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
-            Access high-quality study notes prepared by experienced faculty at
-            Challenger Classes to help students revise and excel in exams.
-          </p>
-        </div>
-      </section>
+  const [activeSubject, setActiveSubject] = useState("All");
 
-      {/* Notes Grid */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto space-y-12">
-          {noteCategories.map((cat) => (
-            <div key={cat.title}>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-2xl">{cat.icon}</span>
-                <h2
-                  className="text-2xl font-bold text-primary"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {cat.title}
-                </h2>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {cat.subjects.map((sub) => (
-                  <div
-                    key={sub.name}
-                    className="bg-white rounded-2xl p-6 border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="font-semibold text-primary text-sm">
-                        {sub.name}
-                      </h3>
-                      <span
-                        className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                          sub.status === "Available"
-                            ? "bg-green-100 text-green-700"
-                            : "bg-amber-100 text-amber-700"
-                        }`}
-                      >
-                        {sub.status}
-                      </span>
-                    </div>
-                    <p className="text-xs text-text-muted mb-4">
-                      {sub.chapters} Chapters
-                    </p>
-                    <button
-                      className={`w-full py-2.5 rounded-xl text-xs font-semibold transition-all duration-300 ${
-                        sub.status === "Available"
-                          ? "bg-gradient-to-r from-gradient-start to-gradient-end text-white hover:shadow-md"
-                          : "bg-gray-100 text-text-muted cursor-not-allowed"
-                      }`}
-                      disabled={sub.status !== "Available"}
-                    >
-                      {sub.status === "Available"
-                        ? "📥 Download Notes"
-                        : "Coming Soon"}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
+  const filteredNotes = activeSubject === "All" 
+    ? notes 
+    : notes.filter(n => n.subject === activeSubject);
+
+  return (
+    <main className="min-h-screen bg-bg pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        {/* Header */}
+        <div className="mb-16">
+           <span className="inline-block px-4 py-1.5 text-[10px] font-black tracking-[0.2em] text-[#192F6B] bg-[#192F6B]/10 italic uppercase rounded-sm mb-4">
+              Study Materials
+           </span>
+           <h1 className="text-5xl md:text-8xl font-black text-primary italic uppercase tracking-tighter mb-4 leading-none text-[#10192F]">
+             Class <span className="text-[#192F6B]">Notes.</span>
+           </h1>
+           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed uppercase font-bold tracking-tight opacity-70">
+             Comprehensive study materials and handwritten notes from our expert faculty.
+           </p>
+        </div>
+
+        {/* Filters */}
+        <div className="flex flex-wrap gap-3 mb-12">
+          {subjects.map((s) => (
+            <button
+              key={s}
+              onClick={() => setActiveSubject(s)}
+              className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${
+                activeSubject === s 
+                ? "bg-[#192F6B] text-white shadow-lg shadow-[#192F6B]/30" 
+                : "bg-white text-gray-500 hover:bg-gray-200 border-2 border-border"
+              }`}
+            >
+              {s}
+            </button>
           ))}
         </div>
-      </section>
 
-      {/* Info Banner */}
-      <section className="section-padding bg-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <SectionHeader
-            badge="Note"
-            title="Enrolled Students Get Full Access"
-            subtitle="All study notes are available for free to enrolled students of Challenger Classes, Nalasopara East. Contact us to enroll and get instant access to all materials."
-          />
+        {/* List */}
+        <div className="bg-white rounded-[2.5rem] border-2 border-border overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="border-b-2 border-border bg-gray-50/50">
+                  <th className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-widest">Document Title</th>
+                  <th className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-widest">Subject</th>
+                  <th className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-widest">Class</th>
+                  <th className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-widest">Size</th>
+                  <th className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-widest text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y-2 divide-border">
+                {filteredNotes.map((note, i) => (
+                  <tr key={i} className="group hover:bg-gray-50 transition-colors">
+                    <td className="px-8 py-6">
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-xl bg-[#192F6B]/10 flex items-center justify-center text-xl">
+                          📄
+                        </div>
+                        <div>
+                          <p className="font-black text-[#10192F] uppercase tracking-tight group-hover:text-[#192F6B] transition-colors">{note.title}</p>
+                          <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-0.5">Updated: {note.date}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-8 py-6">
+                      <span className="px-3 py-1 rounded-full bg-blue-50 text-[#192F6B] text-[10px] font-black uppercase tracking-widest border border-blue-100">
+                        {note.subject}
+                      </span>
+                    </td>
+                    <td className="px-8 py-6 text-[10px] font-black text-gray-500 uppercase tracking-widest">
+                      {note.class}
+                    </td>
+                    <td className="px-8 py-6 text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                      {note.size}
+                    </td>
+                    <td className="px-8 py-6 text-right">
+                      <button className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#192F6B] text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-blue-700 transition-all active:scale-95 shadow-md shadow-[#192F6B]/20">
+                        Download <span>↓</span>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </section>
+      </div>
 
-      <CTABanner
-        title="Need Personalized Study Material?"
-        subtitle="Enroll at Challenger Classes and get access to curated notes, formula sheets, and revision guides for all subjects."
-      />
-    </>
+      <div className="mt-24">
+        <CTABanner />
+      </div>
+    </main>
   );
 }

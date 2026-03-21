@@ -158,27 +158,23 @@ export default function HomePage() {
             </div>
 
             {/* Hero visual */}
-            <div className="relative hidden lg:block">
-              <div className="relative w-full aspect-square max-w-lg mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-gradient-start/20 to-gradient-end/20 rounded-3xl rotate-6" />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-light rounded-3xl flex items-center justify-center">
-                  <div className="text-center text-white p-8">
-                    <div className="text-6xl mb-4">🎓</div>
-                    <p className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                      Challenger Classes
-                    </p>
-                    <p className="text-sm text-gray-300">
-                      Shaping Future Leaders Since 2014
-                    </p>
-                    <div className="mt-6 glass-dark rounded-2xl p-4 inline-block">
-                      <p className="text-xs text-gray-400 uppercase tracking-wider">
-                        Open Admissions
-                      </p>
-                      <p className="text-lg font-bold text-accent mt-1">
-                        2025–26 Batch
-                      </p>
-                    </div>
-                  </div>
+            <div className="relative lg:block">
+              <div className="relative w-full aspect-square max-w-lg mx-auto group">
+                {/* Decorative background glow */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-[#192F6B]/20 to-transparent rounded-[3rem] blur-2xl group-hover:scale-110 transition-transform duration-700" />
+                
+                <div className="relative bg-white p-2 rounded-[3rem] shadow-2xl shadow-[#192F6B]/10 overflow-hidden border-2 border-border group-hover:border-[#192F6B]/30 transition-all duration-500">
+                  <img
+                    src="/hero_img.png"
+                    alt="Challenger Classes Hero"
+                    className="w-full h-full object-cover rounded-[2.5rem] group-hover:scale-105 transition-transform duration-1000"
+                  />
+                </div>
+                
+                {/* Floating badge */}
+                <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-border hidden md:block animate-bounce-slow">
+                  <p className="text-[10px] font-black text-[#192F6B] uppercase tracking-widest mb-1">Success Rate</p>
+                  <p className="text-3xl font-black text-[#10192F] italic uppercase tracking-tighter">98.5%</p>
                 </div>
               </div>
             </div>
