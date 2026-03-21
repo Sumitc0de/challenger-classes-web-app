@@ -28,7 +28,7 @@ export default function TestimonialCard({
             {exam} · {year}
           </p>
         </div>
-        <span className="ml-auto text-xl font-bold text-accent-orange">
+        <span className="ml-auto text-xl font-bold text-[#192F6B]">
           {score}
         </span>
       </div>

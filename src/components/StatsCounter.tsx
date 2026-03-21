@@ -33,16 +33,16 @@ export default function StatsCounter() {
   return (
     <div
       ref={ref}
-      className="bg-gradient-to-r from-accent-orange via-orange-500 to-orange-600 py-10"
+      className="bg-white py-12 border-y border-gray-100"
     >
       <div className="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((stat, i) => (
-          <div key={i} className="text-center text-white">
+          <div key={i} className="text-center text-[#10192F]">
             <p className="text-3xl md:text-4xl lg:text-5xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>
               {visible ? <AnimatedNumber value={stat.value} /> : "0"}
               {stat.suffix}
             </p>
-            <p className="text-sm text-white/80 font-medium uppercase tracking-wider">
+            <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">
               {stat.label}
             </p>
           </div>

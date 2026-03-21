@@ -40,7 +40,7 @@ export default function CourseCard({
             key={i}
             className="flex items-center gap-2 text-sm text-text-muted"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-orange shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#192F6B] shrink-0" />
             {f}
           </li>
         ))}

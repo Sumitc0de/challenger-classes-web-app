@@ -37,7 +37,7 @@ export default function CTABanner({
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href={primaryHref}
-              className="px-8 py-3.5 bg-gradient-to-r from-accent-orange to-orange-500 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300"
+              className="px-8 py-3.5 bg-white text-[#192F6B] font-semibold rounded-full hover:shadow-lg hover:shadow-white/30 hover:-translate-y-0.5 transition-all duration-300"
             >
               {primaryLabel}
             </Link>

@@ -76,7 +76,7 @@ const courseDetails = [
       "Daily problem practice (DPP) sheets",
       "Performance analytics and improvement strategies",
     ],
-    color: "from-orange-500 to-red-500",
+    color: "from-[#192F6B] to-red-500",
   },
 ];
 
@@ -148,7 +148,7 @@ export default function CoursesPage() {
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-orange to-orange-500 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 text-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#192F6B] text-white font-semibold rounded-full hover:shadow-lg hover:shadow-[#192F6B]/30 transition-all duration-300 text-sm"
                 >
                   Enquire Now
                   <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

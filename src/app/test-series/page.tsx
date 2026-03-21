@@ -124,13 +124,13 @@ export default function TestSeriesPage() {
               <ul className="space-y-2.5 mb-6">
                 {ts.features.map((f, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-text-muted">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-orange shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#192F6B] shrink-0" />
                     {f}
                   </li>
                 ))}
               </ul>
 
-              <button className="w-full py-3 bg-gradient-to-r from-accent-orange to-orange-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300 text-sm">
+              <button className="w-full py-3 bg-[#192F6B] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#192F6B]/30 transition-all duration-300 text-sm">
                 Start Practicing
               </button>
             </div>

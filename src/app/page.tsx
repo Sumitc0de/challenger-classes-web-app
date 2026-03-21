@@ -104,7 +104,7 @@ const whyChooseUs = [
     ),
     title: "Progress Tracking",
     description:
-      "AI-driven analytics and detailed performance reports help students and parents track academic growth.",
+      "Regular tests and performance reports to monitor improvement.",
   },
 ];
 
@@ -120,7 +120,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-24 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-wider uppercase rounded-full bg-accent-orange/10 text-accent-orange mb-6">
+              <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-wider uppercase rounded-full bg-[#192F6B]/10 text-[#192F6B] mb-6">
                 #1 Rated in Nalasopara East
               </span>
               <h1
@@ -144,7 +144,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/contact"
-                  className="px-8 py-3.5 bg-gradient-to-r from-accent-orange to-orange-500 text-white font-semibold rounded-full hover:shadow-xl hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300"
+                  className="px-8 py-3.5 bg-[#192F6B] text-white font-semibold rounded-full hover:shadow-xl hover:shadow-[#192F6B]/30 hover:-translate-y-0.5 transition-all duration-300"
                 >
                   Enroll Now
                 </Link>

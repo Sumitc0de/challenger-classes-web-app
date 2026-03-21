@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
-@theme inline {
+:root {
   --color-primary: #0F172A;
   --color-primary-light: #1E3A8A;
   --color-accent: #06B6D4;
-  --color-accent-orange: #F97316;
+  --accent: #2563EB; /* Blue-600 logic applied globally */
+  --color-accent-orange: var(--accent);
   --color-gradient-start: #6366F1;
   --color-gradient-end: #8B5CF6;
   --color-bg: #F8FAFC;
@@ -15,6 +16,19 @@
   --color-border: #E2E8F0;
   --font-sans: var(--font-inter), 'Inter', sans-serif;
   --font-display: var(--font-outfit), 'Outfit', sans-serif;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-accent: var(--color-accent);
+  --color-accent-orange: var(--accent);
+  --color-bg: var(--color-bg);
+  --color-bg-dark: var(--color-bg-dark);
+  --color-surface: var(--color-surface);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-border: var(--color-border);
 }
 
 html {
@@ -31,10 +45,10 @@ body {
 
 /* ── Glassmorphism ─────────────────────────── */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .glass-dark {

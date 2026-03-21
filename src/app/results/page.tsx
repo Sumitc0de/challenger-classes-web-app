@@ -50,14 +50,14 @@ export default function ResultsPage() {
       </section>
 
       {/* Highlights */}
-      <section className="bg-gradient-to-r from-accent-orange via-orange-500 to-orange-600 py-10">
+      <section className="bg-white py-12 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
           {highlights.map((h) => (
-            <div key={h.label} className="text-center text-white">
+            <div key={h.label} className="text-center text-[#10192F]">
               <p className="text-3xl md:text-4xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>
                 {h.number}
               </p>
-              <p className="text-xs text-white/80 font-medium">{h.label}</p>
+              <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">{h.label}</p>
             </div>
           ))}
         </div>
@@ -81,7 +81,7 @@ export default function ResultsPage() {
                   {t.initials}
                 </div>
                 <h3 className="font-semibold text-primary">{t.name}</h3>
-                <p className="text-2xl font-bold text-accent-orange my-1" style={{ fontFamily: "var(--font-display)" }}>
+                <p className="text-2xl font-bold text-[#192F6B] my-1" style={{ fontFamily: "var(--font-display)" }}>
                   {t.score}
                 </p>
                 <p className="text-xs text-text-muted">
@@ -124,7 +124,7 @@ export default function ResultsPage() {
                     <p className="text-xs text-text-muted">Distinction</p>
                   </div>
                   <div>
-                    <p className="text-xl font-bold text-accent-orange">{y.topScore}</p>
+                    <p className="text-xl font-bold text-[#192F6B]">{y.topScore}</p>
                     <p className="text-xs text-text-muted">Top Score</p>
                   </div>
                 </div>

@@ -125,7 +125,7 @@ export default function ContactForm() {
       {/* Submit */}
       <button
         type="submit"
-        className="w-full py-3.5 bg-gradient-to-r from-accent-orange to-orange-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300"
+        className="w-full py-3.5 bg-[#192F6B] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#192F6B]/30 transition-all duration-300"
       >
         {submitted ? "✓ Inquiry Sent!" : "Send Inquiry"}
       </button>

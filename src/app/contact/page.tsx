@@ -41,7 +41,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <div>
-                <p className="text-xs text-accent-orange font-semibold uppercase tracking-wider">Call Us Now</p>
+                <p className="text-xs text-[#192F6B] font-semibold uppercase tracking-wider">Call Us Now</p>
                 <p className="text-xl font-bold text-primary">+91 98765 43210</p>
               </div>
             </a>
@@ -54,7 +54,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <div>
-                <p className="text-xs text-accent-orange font-semibold uppercase tracking-wider">WhatsApp Support</p>
+                <p className="text-xs text-[#192F6B] font-semibold uppercase tracking-wider">WhatsApp Support</p>
                 <p className="text-lg font-bold text-primary">Live Chat</p>
               </div>
             </a>
@@ -73,7 +73,7 @@ export default function ContactPage() {
               />
               <div className="p-4">
                 <div className="flex items-start gap-2">
-                  <span className="text-accent-orange mt-0.5">📍</span>
+                  <span className="text-[#192F6B] mt-0.5">📍</span>
                   <div>
                     <p className="font-semibold text-primary text-sm">Main Branch</p>
                     <p className="text-xs text-text-muted">
