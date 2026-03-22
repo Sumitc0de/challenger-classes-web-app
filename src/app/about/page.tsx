@@ -10,14 +10,14 @@ export const metadata: Metadata = {
 
 const faculty = [
   {
-    name: "Purushottam Sir",
-    subject: "Founder & Science Expert",
+    name: "Adv. (Dr.) Purushottam Mishra",
+    subject: "Co-Founder & Science Expert",
     exp: "10+ Years",
     image: "/purushautam_sir.png"
   },
   {
-    name: "Ritukesh Sir",
-    subject: "Co-Founder & Mathematics Expert",
+    name: "Adv. Ritukesh Tiwari",
+    subject: "Founder & Mathematics Expert",
     exp: "8+ Years",
     image: "/ritukesh_sir.png"
   },

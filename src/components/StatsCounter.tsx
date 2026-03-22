@@ -11,8 +11,8 @@ interface Stat {
 const stats: Stat[] = [
   { value: 90, suffix: "%+", label: "Pass Rate" },
   { value: 1000, suffix: "+", label: "Students Taught" },
-  { value: 15, suffix: "+", label: "Years of Excellence" },
-  { value: 25, suffix: "+", label: "Expert Faculty" },
+  { value: 12, suffix: "+", label: "Years of Excellence" },
+  { value: 15, suffix: "+", label: "Expert Faculty" },
 ];
 
 export default function StatsCounter() {

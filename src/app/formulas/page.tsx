@@ -122,15 +122,12 @@ export default function FormulasPage() {
   const [selectedImages, setSelectedImages] = useState<any[] | null>(null);
   const [scale, setScale] = useState(100);
 
-  // Reset scale when modal opens depending on device
   useEffect(() => {
     if (selectedImages) {
-      // Default to 25% on large screens per requested layout, 100% on mobile
       setScale(window.innerWidth > 1024 ? 25 : 100);
     }
   }, [selectedImages]);
 
-  // Close modal on escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setSelectedImages(null);
@@ -150,7 +147,7 @@ export default function FormulasPage() {
         {/* Header */}
         <div className="mb-16 text-center lg:text-left">
            <span className="inline-block px-4 py-1.5 text-[10px] font-black tracking-[0.2em] text-[#192F6B] bg-[#192F6B]/10 italic uppercase rounded-sm mb-4">
-              Cheat Sheets & Assets
+              Cheat Sheets &amp; Assets
            </span>
            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-primary italic uppercase tracking-tighter mb-4 leading-none text-[#10192F]">
              Formula <span className="text-[#192F6B]">Hub.</span>
@@ -200,7 +197,6 @@ export default function FormulasPage() {
               </h3>
 
               {f.images && f.images.length > 0 ? (
-                // Image Asset Card
                 <div 
                   className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 cursor-pointer border border-black/10 group/img shadow-inner bg-gray-100 flex items-center justify-center"
                   onClick={() => setSelectedImages(f.images || null)}
@@ -225,7 +221,6 @@ export default function FormulasPage() {
                   </div>
                 </div>
               ) : (
-                // Text/LaTeX Card
                 <div className={`flex-1 p-6 rounded-2xl border flex items-center justify-center mb-6 font-mono text-lg font-bold min-h-[160px] text-center shadow-inner ${f.color.split(' ').filter(c => !c.startsWith('hover:') && !c.startsWith('border-')).join(' ')}`}>
                   <div className="italic tracking-wider px-2">
                     {f.latex}
@@ -245,10 +240,9 @@ export default function FormulasPage() {
         <CTABanner />
       </div>
 
-      {/* True Fullscreen Image Modal with Zoom */}
+      {/* Fullscreen Image Modal */}
       {selectedImages && (
         <div className="fixed inset-0 z-[100] bg-[#0a1128]/95 backdrop-blur-xl">
-          {/* Fixed Controls Overlay */}
           <button 
             onClick={() => setSelectedImages(null)}
             className="absolute top-6 right-6 z-[110] text-white hover:text-red-400 bg-white/10 hover:bg-white/20 rounded-full p-3 transition-colors flex items-center justify-center shadow-xl backdrop-blur-md border border-white/10"
@@ -259,37 +253,16 @@ export default function FormulasPage() {
             </svg>
           </button>
 
-          {/* Zoom Controls */}
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[110] flex items-center gap-4 bg-black/60 backdrop-blur-lg px-6 py-3 rounded-full text-white shadow-2xl border border-white/10">
-            <button 
-              onClick={() => setScale(s => Math.max(25, s - 25))}
-              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors font-mono text-xl"
-            >
-              -
-            </button>
+            <button onClick={() => setScale(s => Math.max(25, s - 25))} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors font-mono text-xl">-</button>
             <span className="text-xs font-black uppercase tracking-widest w-12 text-center">{scale}%</span>
-            <button 
-              onClick={() => setScale(s => Math.min(300, s + 25))}
-              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors font-mono text-xl"
-            >
-              +
-            </button>
+            <button onClick={() => setScale(s => Math.min(300, s + 25))} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors font-mono text-xl">+</button>
             <div className="w-px h-4 bg-white/20 mx-2" />
-            <button 
-              onClick={() => setScale(window.innerWidth > 1024 ? 25 : 100)}
-              className="text-[9px] font-black uppercase tracking-widest hover:text-blue-400 transition-colors"
-            >
-              Reset
-            </button>
+            <button onClick={() => setScale(window.innerWidth > 1024 ? 25 : 100)} className="text-[9px] font-black uppercase tracking-widest hover:text-blue-400 transition-colors">Reset</button>
           </div>
           
-          {/* Independent Scrollable Document Canvas */}
           <div className="absolute inset-0 overflow-auto flex flex-col items-center justify-start z-0">
-            {/* Scrollable document wrapper natively scaling by % width */}
-            <div 
-               className="relative flex flex-col items-center gap-12 py-12 md:py-20 transition-all duration-300 ease-out min-h-screen"
-               style={{ width: `${scale}%` }}
-            >
+            <div className="relative flex flex-col items-center gap-12 py-12 md:py-20 transition-all duration-300 ease-out min-h-screen" style={{ width: `${scale}%` }}>
               {selectedImages.map((img, i) => (
                 <div key={i} className="relative w-full px-2 md:px-8 flex justify-center">
                   {selectedImages.length > 1 && (
@@ -297,12 +270,11 @@ export default function FormulasPage() {
                        Page {i + 1} of {selectedImages.length}
                      </div>
                   )}
-                  {/* Image takes full width of its parent block smoothly */}
                   <Image 
                     src={img} 
                     alt={`Formula Fullscreen Page ${i+1}`} 
                     className="w-full h-auto object-contain rounded-xl shadow-2xl bg-white"
-                    unoptimized 
+                    unoptimized
                   />
                 </div>
               ))}

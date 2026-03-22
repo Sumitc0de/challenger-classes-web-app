@@ -9,14 +9,11 @@ export const metadata: Metadata = {
 };
 
 const toppers = [
-  { name: "Rahul Sharma", score: "96.8%", exam: "SSC Board", year: "2025", initials: "RS" },
-  { name: "Sneha Patil", score: "95.2%", exam: "HSC Science", year: "2025", initials: "SP" },
-  { name: "Aman Khan", score: "99.1%ile", exam: "MHT-CET", year: "2024", initials: "AK" },
-  { name: "Ishita Saxena", score: "94.5%", exam: "HSC Commerce", year: "2024", initials: "IS" },
-  { name: "Vikram Desai", score: "97.2%", exam: "SSC Board", year: "2024", initials: "VD" },
-  { name: "Pooja Yadav", score: "93.8%", exam: "HSC Science", year: "2024", initials: "PY" },
-  { name: "Rohit Gupta", score: "98.5%ile", exam: "MHT-CET", year: "2023", initials: "RG" },
-  { name: "Neha Joshi", score: "95.6%", exam: "SSC Board", year: "2023", initials: "NJ" },
+  { name: "Vinayak Jaiswal", score: "99.3%ile", exam: "JEE Mains", year: "2026", initials: "VJ", image: "/gallery/toppers/vinayak_jaiswal_2026_jee_mains_topper_99.30_percentile.png" },
+  { name: "Suman Ray", score: "Selected", exam: "NEET UG", year: "2025", initials: "SR", image: "/gallery/toppers/suman_ray_neet_topper.png" },
+  { name: "Vijay Gaud", score: "Selected", exam: "NEET UG", year: "2025", initials: "VG", image: "/gallery/toppers/vijay_gaud_neet_topper.png" },
+  { name: "Harsh Jaiswal", score: "244 Marks", exam: "CA Found.", year: "2026", initials: "HJ", image: "/gallery/toppers/harsh_jaiswal_ca_foundation_topper_244_marks.png" },
+
 ];
 
 const highlights = [
@@ -77,8 +74,12 @@ export default function ResultsPage() {
                 key={t.name}
                 className="bg-white rounded-3xl p-6 text-center shadow-sm border border-border hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
               >
-                <div className="w-20 h-20 mx-auto rounded-2xl bg-[#192F6B] flex items-center justify-center text-white text-2xl font-black uppercase tracking-tighter mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-[#192F6B]/20">
-                  {t.initials}
+                <div className="w-20 h-20 mx-auto rounded-2xl bg-[#192F6B] flex items-center justify-center text-white text-2xl font-black uppercase tracking-tighter mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-[#192F6B]/20 overflow-hidden">
+                  {t.image ? (
+                    <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
+                  ) : (
+                    t.initials
+                  )}
                 </div>
                 <h3 className="font-semibold text-primary">{t.name}</h3>
                 <p className="text-2xl font-bold text-[#192F6B] my-1" style={{ fontFamily: "var(--font-display)" }}>

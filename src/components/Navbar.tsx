@@ -8,7 +8,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/courses", label: "Courses" },
-  { href: "/test-series", label: "Test Series" },
+  // { href: "/test-series", label: "Test Series" },
   { href: "/results", label: "Results" },
   { href: "/gallery", label: "Gallery" },
   { href: "/faq", label: "FAQ" },
@@ -16,12 +16,12 @@ const navLinks = [
 ];
 
 const studyLinks = [
-  {
-    href: "/notes",
-    label: "Notes",
-    icon: "📝",
-    desc: "Subject-wise study material & toppers' notes"
-  },
+  // {
+  //   href: "/notes",
+  //   label: "Notes",
+  //   icon: "📝",
+  //   desc: "Subject-wise study material & toppers' notes"
+  // },
   {
     href: "/concepts",
     label: "Concepts",
@@ -57,8 +57,8 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${scrolled
-          ? "shadow-md py-2"
-          : "shadow-sm border-b border-gray-100 py-4"
+        ? "shadow-md py-2"
+        : "shadow-sm border-b border-gray-100 py-4"
         }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 lg:px-8">
@@ -86,8 +86,8 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === link.href
-                  ? "text-[#192F6B] font-bold uppercase"
-                  : "text-text-muted hover:text-primary hover:bg-black/5 uppercase"
+                ? "text-[#192F6B] font-bold uppercase"
+                : "text-text-muted hover:text-primary hover:bg-black/5 uppercase"
                 }`}
             >
               {link.label}
@@ -102,8 +102,8 @@ export default function Navbar() {
           >
             <button
               className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 uppercase ${studyLinks.some(link => pathname === link.href)
-                  ? "text-[#192F6B] font-bold"
-                  : "text-text-muted hover:text-primary hover:bg-black/5"
+                ? "text-[#192F6B] font-bold"
+                : "text-text-muted hover:text-primary hover:bg-black/5"
                 }`}
             >
               Study Hub
@@ -124,8 +124,8 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={`flex items-start gap-3 p-3 rounded-xl transition-all ${pathname === link.href
-                        ? "bg-[#192F6B]/10 text-[#192F6B] shadow-inner"
-                        : "text-text-muted hover:text-primary hover:bg-black/5"
+                      ? "bg-[#192F6B]/10 text-[#192F6B] shadow-inner"
+                      : "text-text-muted hover:text-primary hover:bg-black/5"
                       }`}
                   >
                     <span className="text-xl shrink-0 mt-0.5">{link.icon}</span>
@@ -148,8 +148,8 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === link.href
-                  ? "text-[#192F6B] font-bold uppercase"
-                  : "text-text-muted hover:text-primary hover:bg-black/5 uppercase"
+                ? "text-[#192F6B] font-bold uppercase"
+                : "text-text-muted hover:text-primary hover:bg-black/5 uppercase"
                 }`}
             >
               {link.label}
@@ -200,8 +200,8 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setOpen(false)}
               className={`px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${pathname === link.href
-                  ? "text-[#192F6B] bg-[#192F6B]/5 font-bold uppercase"
-                  : "text-text-muted hover:text-primary hover:bg-gray-50 uppercase"
+                ? "text-[#192F6B] bg-[#192F6B]/5 font-bold uppercase"
+                : "text-text-muted hover:text-primary hover:bg-gray-50 uppercase"
                 }`}
             >
               {link.label}
@@ -218,8 +218,8 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={`flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg transition-all ${pathname === link.href
-                      ? "text-[#192F6B] bg-[#192F6B]/5 font-bold"
-                      : "text-text-muted hover:text-primary hover:bg-gray-50"
+                    ? "text-[#192F6B] bg-[#192F6B]/5 font-bold"
+                    : "text-text-muted hover:text-primary hover:bg-gray-50"
                     }`}
                 >
                   <span className="text-lg">{link.icon}</span>
@@ -235,8 +235,8 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setOpen(false)}
               className={`px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${pathname === link.href
-                  ? "text-[#192F6B] bg-[#192F6B]/5 font-bold uppercase"
-                  : "text-text-muted hover:text-primary hover:bg-gray-50 uppercase"
+                ? "text-[#192F6B] bg-[#192F6B]/5 font-bold uppercase"
+                : "text-text-muted hover:text-primary hover:bg-gray-50 uppercase"
                 }`}
             >
               {link.label}

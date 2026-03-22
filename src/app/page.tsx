@@ -43,31 +43,31 @@ const courses = [
 
 const testimonials = [
   {
-    name: "Rahul Sharma",
-    score: "96.8%",
-    exam: "SSC",
-    year: "2025",
-    quote:
-      "Challenger Classes transformed my approach to studies. The faculty made complex topics simple and easy to understand.",
-    initials: "RS",
+    name: "Vinayak Jaiswal",
+    score: "99.3%ile",
+    exam: "JEE Mains",
+    year: "2026",
+    quote: "The structured preparation and mock tests at Challenger Classes were the key to achieving my JEE Mains percentile.",
+    initials: "VJ",
+    image: "/gallery/toppers/vinayak_jaiswal_2026_jee_mains_topper_99.30_percentile.png",
   },
   {
-    name: "Sneha Patil",
-    score: "95.2%",
-    exam: "HSC Science",
-    year: "2025",
-    quote:
-      "The test series and personal attention helped me consistently improve. Best coaching in Nalasopara!",
-    initials: "SP",
-  },
-  {
-    name: "Aman Khan",
-    score: "99.1%ile",
-    exam: "MHT-CET",
+    name: "Suman Ray",
+    score: "Selected",
+    exam: "NEET UG",
     year: "2024",
-    quote:
-      "I cracked MHT-CET with a great percentile thanks to the structured preparation at Challenger Classes.",
-    initials: "AK",
+    quote: "Challenger Classes transformed my approach to studies. The faculty made complex biology topics simple and easy to understand.",
+    initials: "SR",
+    image: "/gallery/toppers/suman_ray_neet_topper.png",
+  },
+  {
+    name: "Harsh Jaiswal",
+    score: "244 Marks",
+    exam: "CA Found.",
+    year: "2024",
+    quote: "I cracked CA Foundation with great marks thanks to the expert guidance and constant support at Challenger Classes.",
+    initials: "HJ",
+    image: "/gallery/toppers/harsh_jaiswal_ca_foundation_topper_244_marks.png",
   },
 ];
 

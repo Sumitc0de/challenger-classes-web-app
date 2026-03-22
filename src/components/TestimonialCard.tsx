@@ -5,6 +5,7 @@ interface TestimonialCardProps {
   year: string;
   quote: string;
   initials: string;
+  image?: string;
 }
 
 export default function TestimonialCard({
@@ -14,13 +15,18 @@ export default function TestimonialCard({
   year,
   quote,
   initials,
+  image,
 }: TestimonialCardProps) {
   return (
     <div className="bg-white rounded-3xl p-6 shadow-sm border border-border hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
       {/* Avatar + Info */}
       <div className="flex items-center gap-4 mb-4">
-        <div className="w-14 h-14 rounded-2xl bg-[#192F6B] flex items-center justify-center text-white text-lg font-black uppercase tracking-tighter shadow-lg shadow-[#192F6B]/20">
-          {initials}
+        <div className="w-14 h-14 rounded-2xl bg-[#192F6B] flex items-center justify-center text-white text-lg font-black uppercase tracking-tighter shadow-lg shadow-[#192F6B]/20 overflow-hidden shrink-0">
+          {image ? (
+            <img src={image} alt={name} className="w-full h-full object-cover" />
+          ) : (
+            initials
+          )}
         </div>
         <div>
           <h4 className="font-semibold text-primary">{name}</h4>
