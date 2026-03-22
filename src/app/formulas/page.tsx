@@ -101,20 +101,7 @@ const formulas: Formula[] = [
     description: "Crystal structures, unit cell dimensions, and defects in solids.",
     color: "bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200 hover:border-fuchsia-400 hover:shadow-fuchsia-500/20"
   },
-  {
-    title: "Quadratic Formula",
-    category: "Algebra",
-    latex: "x = [-b ± √(b² - 4ac)] / 2a",
-    description: "Used to find the roots of a quadratic equation ax² + bx + c = 0.",
-    color: "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-400 hover:shadow-slate-500/20"
-  },
-  {
-    title: "Pythagorean Theorem",
-    category: "Geometry",
-    latex: "a² + b² = c²",
-    description: "Relates the lengths of the sides of a right-angled triangle.",
-    color: "bg-emerald-50 text-emerald-700 border-emerald-200 hover:border-emerald-400 hover:shadow-emerald-500/20"
-  }
+
 ];
 
 export default function FormulasPage() {
@@ -136,25 +123,25 @@ export default function FormulasPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const filteredFormulas = activeCategory === "All" 
-    ? formulas 
+  const filteredFormulas = activeCategory === "All"
+    ? formulas
     : formulas.filter(f => f.category === activeCategory);
 
   return (
     <main className="min-h-screen bg-bg pt-24 pb-16 relative">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
-        
+
         {/* Header */}
         <div className="mb-16 text-center lg:text-left">
-           <span className="inline-block px-4 py-1.5 text-[10px] font-black tracking-[0.2em] text-[#192F6B] bg-[#192F6B]/10 italic uppercase rounded-sm mb-4">
-              Cheat Sheets &amp; Assets
-           </span>
-           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-primary italic uppercase tracking-tighter mb-4 leading-none text-[#10192F]">
-             Formula <span className="text-[#192F6B]">Hub.</span>
-           </h1>
-           <p className="text-gray-500 text-lg max-w-2xl leading-relaxed uppercase font-bold tracking-tight opacity-70 mx-auto lg:mx-0">
-             Quick access to essential mathematical equations, theorems, and visual cheat sheets for exam success.
-           </p>
+          <span className="inline-block px-4 py-1.5 text-[10px] font-black tracking-[0.2em] text-[#192F6B] bg-[#192F6B]/10 italic uppercase rounded-sm mb-4">
+            Cheat Sheets &amp; Assets
+          </span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-primary italic uppercase tracking-tighter mb-4 leading-none text-[#10192F]">
+            Formula <span className="text-[#192F6B]">Hub.</span>
+          </h1>
+          <p className="text-gray-500 text-lg max-w-2xl leading-relaxed uppercase font-bold tracking-tight opacity-70 mx-auto lg:mx-0">
+            Quick access to essential mathematical equations, theorems, and visual cheat sheets for exam success.
+          </p>
         </div>
 
         {/* Filters */}
@@ -163,11 +150,10 @@ export default function FormulasPage() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${
-                activeCategory === cat 
-                ? "bg-[#192F6B] text-white shadow-lg shadow-[#192F6B]/30 scale-105" 
-                : "bg-white text-gray-500 hover:bg-gray-200 border-2 border-border hover:shadow-sm"
-              }`}
+              className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${activeCategory === cat
+                  ? "bg-[#192F6B] text-white shadow-lg shadow-[#192F6B]/30 scale-105"
+                  : "bg-white text-gray-500 hover:bg-gray-200 border-2 border-border hover:shadow-sm"
+                }`}
             >
               {cat}
             </button>
@@ -177,8 +163,8 @@ export default function FormulasPage() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredFormulas.map((f, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className={`group bg-white rounded-[2rem] p-6 border-2 transition-all duration-500 relative flex flex-col hover:-translate-y-2 hover:shadow-2xl ${f.color.split(' ').filter(c => c.startsWith('hover:') || c.startsWith('border-')).join(' ')}`}
             >
               <div className="mb-5 flex justify-between items-start">
@@ -191,20 +177,20 @@ export default function FormulasPage() {
                   </span>
                 )}
               </div>
-              
+
               <h3 className="text-xl font-black text-[#10192F] uppercase italic tracking-tighter mb-4 pr-4">
                 {f.title}
               </h3>
 
               {f.images && f.images.length > 0 ? (
-                <div 
+                <div
                   className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 cursor-pointer border border-black/10 group/img shadow-inner bg-gray-100 flex items-center justify-center"
                   onClick={() => setSelectedImages(f.images || null)}
                 >
-                  <Image 
-                    src={f.images[0]} 
-                    alt={f.title} 
-                    fill 
+                  <Image
+                    src={f.images[0]}
+                    alt={f.title}
+                    fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover/img:scale-105"
                     placeholder="blur"
@@ -232,17 +218,17 @@ export default function FormulasPage() {
                 <p className="text-[11px] text-gray-500 font-bold uppercase tracking-widest leading-relaxed mt-auto mb-5">
                   {f.description}
                 </p>
-                
+
                 <div className="pt-4 border-t border-black/5 flex justify-end">
                   {f.images && f.images.length > 0 ? (
-                    <button 
+                    <button
                       onClick={(e) => {
                         e.stopPropagation();
                         f.images!.forEach((img, idx) => {
                           setTimeout(() => {
                             const a = document.createElement("a");
                             a.href = img.src || img;
-                            a.download = `${f.title.replace(/\s+/g, '_')}${f.images!.length > 1 ? `_part${idx+1}` : ''}.png`;
+                            a.download = `${f.title.replace(/\s+/g, '_')}${f.images!.length > 1 ? `_part${idx + 1}` : ''}.png`;
                             document.body.appendChild(a);
                             a.click();
                             document.body.removeChild(a);
@@ -252,12 +238,12 @@ export default function FormulasPage() {
                       className="flex z-10 items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 bg-[#192F6B] text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-[#10192F] hover:shadow-lg hover:-translate-y-0.5 transition-all"
                     >
                       <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                       </svg>
                       Download{f.images.length > 1 ? " All" : ""}
                     </button>
                   ) : (
-                    <button 
+                    <button
                       onClick={(e) => {
                         e.stopPropagation();
                         navigator.clipboard.writeText(f.latex || "");
@@ -266,7 +252,7 @@ export default function FormulasPage() {
                       className="flex z-10 items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 bg-gray-900 text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-black hover:shadow-lg hover:-translate-y-0.5 transition-all"
                     >
                       <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                       </svg>
                       Copy Formula
                     </button>
@@ -285,7 +271,7 @@ export default function FormulasPage() {
       {/* Fullscreen Image Modal */}
       {selectedImages && (
         <div className="fixed inset-0 z-[100] bg-[#0a1128]/95 backdrop-blur-xl">
-          <button 
+          <button
             onClick={() => setSelectedImages(null)}
             className="absolute top-6 right-6 z-[110] text-white hover:text-red-400 bg-white/10 hover:bg-white/20 rounded-full p-3 transition-colors flex items-center justify-center shadow-xl backdrop-blur-md border border-white/10"
             title="Close (ESC)"
@@ -302,19 +288,19 @@ export default function FormulasPage() {
             <div className="w-px h-4 bg-white/20 mx-2" />
             <button onClick={() => setScale(window.innerWidth > 1024 ? 25 : 100)} className="text-[9px] font-black uppercase tracking-widest hover:text-blue-400 transition-colors">Reset</button>
           </div>
-          
+
           <div className="absolute inset-0 overflow-auto flex flex-col items-center justify-start z-0">
             <div className="relative flex flex-col items-center gap-12 py-12 md:py-20 transition-all duration-300 ease-out min-h-screen" style={{ width: `${scale}%` }}>
               {selectedImages.map((img, i) => (
                 <div key={i} className="relative w-full px-2 md:px-8 flex justify-center">
                   {selectedImages.length > 1 && (
-                     <div className="absolute top-4 left-8 md:left-12 z-20 bg-black/80 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest backdrop-blur-sm shadow-xl border border-white/10">
-                       Page {i + 1} of {selectedImages.length}
-                     </div>
+                    <div className="absolute top-4 left-8 md:left-12 z-20 bg-black/80 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest backdrop-blur-sm shadow-xl border border-white/10">
+                      Page {i + 1} of {selectedImages.length}
+                    </div>
                   )}
-                  <Image 
-                    src={img} 
-                    alt={`Formula Fullscreen Page ${i+1}`} 
+                  <Image
+                    src={img}
+                    alt={`Formula Fullscreen Page ${i + 1}`}
                     className="w-full h-auto object-contain rounded-xl shadow-2xl bg-white"
                     unoptimized
                   />

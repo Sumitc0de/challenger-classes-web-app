@@ -72,28 +72,24 @@ export default function ResultsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-20">
           
           {/* Main Featured (Left, 7 cols) */}
-          <div className="lg:col-span-7 relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#10192F] to-[#192F6B] group min-h-[400px] flex items-end shadow-xl shadow-[#192F6B]/10">
+          <div className="lg:col-span-7 relative rounded-[2rem] overflow-hidden bg-white border border-gray-100 group min-h-[400px] flex items-end shadow-xl shadow-[#192F6B]/10 transition-all hover:shadow-2xl">
             <img 
               src={featuredMain.image || "/gallery/student_success.png"} 
               alt={featuredMain.name} 
-              className="absolute inset-0 w-full h-full object-cover object-top opacity-60 mix-blend-overlay group-hover:scale-105 transition-transform duration-700"
+              className="absolute inset-0 w-full h-full object-cover object-top opacity-100 group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#10192F] via-[#10192F]/60 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent"></div>
             
             <div className="relative p-8 md:p-12 w-full z-10">
                <div className="flex items-center gap-3 mb-4">
-                 <span className="bg-[#F97316] text-white px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest flex items-center gap-1 shadow-lg shadow-[#F97316]/30">
-                   <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0l2.3 5.4 5.7.4-4.4 3.9 1.4 5.3-4.9-3.2-4.9 3.2 1.4-5.3-4.5-3.9 5.8-.4L8 0z"/></svg>
-                   RANK 1
-                 </span>
-                 <span className="text-white/90 text-xs font-bold tracking-widest uppercase">{featuredMain.exam} - {featuredMain.year}</span>
+                 <span className="text-primary/90 text-[10px] font-black tracking-widest uppercase px-3 py-1 bg-primary/5 rounded-full">{featuredMain.exam} - {featuredMain.year}</span>
                </div>
-               <h2 className="text-5xl md:text-6xl font-black text-white mb-2 tracking-tight">{featuredMain.name}</h2>
+               <h2 className="text-5xl md:text-6xl font-black text-primary mb-2 tracking-tight">{featuredMain.name}</h2>
                <div className="flex flex-col sm:flex-row sm:items-end gap-1 sm:gap-4">
                  <p className="text-7xl md:text-[100px] font-black text-transparent bg-clip-text bg-gradient-to-b from-[#F97316] to-[#ea580c] leading-none" style={{ fontFamily: "var(--font-display)" }}>
                    {featuredMain.score}
                  </p>
-                 <span className="text-white/80 font-bold mb-3 uppercase tracking-widest text-xs">{featuredMain.exam} Qualifier</span>
+                 <span className="text-primary/80 font-bold mb-3 uppercase tracking-widest text-[10px]">{featuredMain.exam} Qualifier</span>
                </div>
             </div>
           </div>
@@ -114,10 +110,6 @@ export default function ResultsPage() {
                 </div>
                 {/* Info */}
                 <div className="flex-1 w-full text-center sm:text-left">
-                  <p className="inline-flex items-center gap-1 text-[10px] font-black text-[#F97316] uppercase tracking-widest mb-2 px-3 py-1 bg-[#F97316]/10 rounded-full">
-                    <svg width="10" height="10" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0l2.3 5.4 5.7.4-4.4 3.9 1.4 5.3-4.9-3.2-4.9 3.2 1.4-5.3-4.5-3.9 5.8-.4L8 0z"/></svg>
-                    RANK {idx + 2}
-                  </p>
                   <h3 className="text-2xl font-black text-primary mb-1 tracking-tight">{sub.name}</h3>
                   <p className="text-3xl sm:text-4xl font-black text-[#F97316]" style={{ fontFamily: "var(--font-display)" }}>{sub.score}</p>
                   
@@ -161,14 +153,6 @@ export default function ResultsPage() {
                 </div>
               </div>
             ))}
-
-            {/* View All Card */}
-            <div className="rounded-[2rem] border-2 border-dashed border-gray-200 flex flex-col items-center justify-center p-8 text-center hover:border-[#192F6B] hover:bg-[#192F6B]/5 transition-all group cursor-pointer min-h-[250px] aspect-square md:aspect-auto">
-               <div className="w-12 h-12 rounded-full bg-[#F97316] text-white flex items-center justify-center mb-4 group-hover:scale-110 shadow-lg shadow-[#F97316]/30 transition-transform">
-                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path d="M12 5v14m-7-7h14"/></svg>
-               </div>
-               <span className="text-[10px] font-black text-[#192F6B] uppercase tracking-[0.2em] leading-relaxed">VIEW ALL 150+<br/>ACHIEVERS</span>
-            </div>
           </div>
         </div>
 
