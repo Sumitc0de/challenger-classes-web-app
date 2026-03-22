@@ -181,6 +181,7 @@ export default function ConceptsPage() {
                     src={c.images[0]} 
                     alt={c.title} 
                     fill 
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover/img:scale-105"
                     placeholder="blur"
                   />

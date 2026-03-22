@@ -209,6 +209,7 @@ export default function FormulasPage() {
                     src={f.images[0]} 
                     alt={f.title} 
                     fill 
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover/img:scale-105"
                     placeholder="blur"
                   />
