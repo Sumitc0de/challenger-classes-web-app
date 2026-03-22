@@ -118,7 +118,10 @@ export default function ContactForm() {
           <option value="class-10">Class 10 (SSC/CBSE)</option>
           <option value="class-12-science">Class 12 Science</option>
           <option value="class-12-commerce">Class 12 Commerce</option>
+          <option value="jee">JEE (Mains/Advanced)</option>
+          <option value="neet">NEET (Medical)</option>
           <option value="mht-cet">MHT-CET</option>
+          <option value="ca-foundation">CA Foundation</option>
           <option value="other">Other</option>
         </select>
       </div>
