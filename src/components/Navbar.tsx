@@ -190,10 +190,10 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden transition-all duration-300 overflow-hidden ${open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden transition-all duration-300 ${open ? "max-h-[calc(100vh-90px)] opacity-100 overflow-y-auto pb-6" : "max-h-0 opacity-0 overflow-hidden"
           }`}
       >
-        <nav className="glass mx-4 mt-2 rounded-2xl p-4 flex flex-col gap-1">
+        <nav className="glass mx-4 mt-2 mb-6 rounded-2xl p-4 flex flex-col gap-1 shadow-xl">
           {navLinks.slice(0, 3).map((link) => (
             <Link
               key={link.href}

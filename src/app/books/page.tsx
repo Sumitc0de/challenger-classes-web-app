@@ -210,33 +210,64 @@ export default function BooksPage() {
     );
 
   const BookCard = ({ book }: { book: any }) => (
-    <div className="group bg-white rounded-[2rem] p-6 border-2 border-border hover:border-blue-600 hover:shadow-2xl hover:shadow-[#192F6B]/10 transition-all duration-500 relative overflow-hidden flex flex-col h-full">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#192F6B]/5 to-transparent rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
-        
-        <div className="relative z-10 flex flex-col h-full">
-          <div className="w-14 h-18 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-2xl shadow-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 overflow-hidden shrink-0 border border-gray-200">
-            <div className={`w-full h-full flex items-center justify-center bg-gradient-to-br ${book.color}`}>
-               {book.icon}
-            </div>
-          </div>
+    <div className="group bg-white rounded-[2rem] p-5 border-2 border-border hover:border-blue-600 hover:shadow-2xl hover:shadow-[#192F6B]/10 transition-all duration-500 relative flex flex-col h-full">
+        {/* The Realistic Book Cover */}
+        <div className="w-full aspect-[3/4] rounded-lg mb-6 group-hover:-translate-y-3 group-hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] transition-all duration-500 overflow-hidden shrink-0 relative shadow-lg transform perspective-1000">
           
-          <div className="mb-4 flex-1">
+          {/* Base Cover Gradient */}
+          <div className={`absolute inset-0 bg-gradient-to-br transition-transform duration-700 group-hover:scale-110 ${book.color}`} />
+          
+          {/* Actual Image if provided */}
+          {book.coverUrl && (
+            <img src={book.coverUrl} alt={book.title} className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-700 group-hover:scale-110" />
+          )}
+
+          {/* Enhanced Spine & Shadow Effects for 3D realism */}
+          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/60 via-black/20 to-transparent border-r border-white/20 z-10 mix-blend-multiply" />
+          <div className="absolute left-8 top-0 bottom-0 w-[1px] bg-white/30 z-10" />
+          
+          {/* Lighting/Glossy Texture */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/30 z-10 opacity-70" />
+          
+          {/* Book Content / Typography (hidden if real cover image exists) */}
+          {!book.coverUrl && (
+            <div className="relative z-20 flex flex-col h-full w-full p-5 justify-between">
+               <div className="flex justify-between items-start w-full pl-5">
+                 <span className="text-[9px] font-black text-white/90 uppercase tracking-[0.2em] px-2 py-1 bg-black/20 rounded backdrop-blur-sm">{book.board}</span>
+               </div>
+               
+               <div className="flex flex-col items-center text-center gap-4 pl-4">
+                 <span className="text-6xl drop-shadow-2xl transform group-hover:scale-110 transition-transform duration-500">{book.icon}</span>
+                 <h3 className="text-white font-black text-2xl leading-[1.1] uppercase drop-shadow-xl select-none">{book.title}</h3>
+                 <p className="text-white/90 text-xs uppercase font-extrabold tracking-[0.3em] bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm">{book.class}</p>
+               </div>
+               
+               <div className="w-full text-center pb-2 pl-4">
+                  <div className="h-[2px] w-12 bg-white/50 mx-auto mb-3 rounded-full" />
+                  <span className="text-[7px] font-black text-white uppercase tracking-[0.4em] drop-shadow-md">Challenger Classes</span>
+               </div>
+            </div>
+          )}
+        </div>
+        
+        <div className="flex flex-col flex-1 px-1">
+          <div className="mb-4">
             <span className="px-2 py-0.5 rounded-md bg-[#192F6B]/10 text-[10px] font-black text-[#192F6B] uppercase tracking-wider mb-2 inline-block">
-              {book.board} // {book.subject}
+              {book.subject}
             </span>
-            <h3 className="text-xl font-black text-primary uppercase leading-tight group-hover:text-[#192F6B] transition-colors">
+            <h3 className="text-lg font-black text-primary uppercase leading-tight group-hover:text-[#192F6B] transition-colors line-clamp-2">
               {book.title}
             </h3>
             <p className="text-[10px] text-text-muted font-bold mt-1 uppercase tracking-widest">{book.desc}</p>
           </div>
 
-          <div className="flex items-center justify-between pt-6 border-t border-dashed border-border mt-auto">
+          <div className="flex items-center justify-between pt-5 border-t border-dashed border-border mt-auto">
              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{book.size}</span>
              <a 
                href={book.fileUrl || "#"} 
                target="_blank" 
                rel="noopener noreferrer"
-               className="flex items-center gap-2 px-4 py-2 bg-primary text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-[#192F6B] transition-all active:scale-95"
+               className="flex items-center gap-2 px-4 py-2 bg-primary text-white text-[10px] font-black uppercase tracking-widest rounded-full hover:bg-[#192F6B] transition-all active:scale-95 shadow-md shadow-primary/20"
              >
                 Download <span className="text-xs">⬇️</span>
              </a>
