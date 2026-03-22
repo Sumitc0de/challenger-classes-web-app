@@ -185,6 +185,70 @@ export default function HomePage() {
       {/* ── Stats ─────────────────────────────────── */}
       <StatsCounter />
 
+      {/* ── Study Hub ────────────────────────────── */}
+      <section className="py-24 bg-[#192F6B] relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 group-hover:bg-white/10 transition-colors duration-1000" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#F97316]/10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/4" />
+        
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10 text-center">
+          <div className="flex flex-col items-center mb-16">
+            <span className="inline-block px-4 py-1.5 text-[10px] font-black tracking-[0.3em] text-[#F97316] bg-[#F97316]/10 italic uppercase rounded-full mb-6">
+               PREMIUM RESOURCES • 100% FREE
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black text-white italic uppercase tracking-tighter mb-6 leading-none">
+              Master Your <span className="text-[#F97316]">Subjects.</span>
+            </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto font-medium tracking-tight">
+              Stop memorizing. Start understanding. Download our exclusive study materials designed by expert faculty to accelerate your preparation.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Formula card */}
+            <Link 
+              href="/formulas" 
+              className="group/card relative bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-[3rem] hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-500 text-left overflow-hidden shadow-2xl hover:shadow-[#F97316]/20"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#F97316]/20 to-transparent rounded-bl-[4rem] opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+              
+              <div className="w-16 h-16 bg-[#F97316] rounded-2xl flex items-center justify-center text-white mb-8 shadow-xl shadow-[#F97316]/30 group-hover/card:rotate-12 transition-transform duration-500">
+                <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              
+              <h3 className="text-3xl font-black text-white italic uppercase tracking-tighter mb-3">Formula Hub</h3>
+              <p className="text-white/50 text-sm font-bold uppercase tracking-widest leading-relaxed mb-8">Download Physics, Maths & Chemistry Cheat Sheets</p>
+              
+              <div className="flex items-center gap-3 text-[#F97316] text-xs font-black uppercase tracking-[0.2em] group-hover/card:gap-5 transition-all">
+                Get Free Access <span className="text-lg">→</span>
+              </div>
+            </Link>
+
+            {/* Concepts card */}
+            <Link 
+              href="/concepts" 
+              className="group/card relative bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-[3rem] hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-500 text-left overflow-hidden shadow-2xl hover:shadow-white/10"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/10 to-transparent rounded-bl-[4rem] opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+              
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-[#192F6B] mb-8 shadow-xl shadow-white/10 group-hover/card:rotate-12 transition-transform duration-500">
+                <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              
+              <h3 className="text-3xl font-black text-white italic uppercase tracking-tighter mb-3">Concept Maps</h3>
+              <p className="text-white/50 text-sm font-bold uppercase tracking-widest leading-relaxed mb-8">Visual Master Guides for Biology & Science Units</p>
+              
+              <div className="flex items-center gap-3 text-white text-xs font-black uppercase tracking-[0.2em] group-hover/card:gap-5 transition-all">
+                Explore Concepts <span className="text-lg">→</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── Courses ───────────────────────────────── */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto">
