@@ -172,25 +172,6 @@ export default function ResultsPage() {
 
       </div>
 
-      {/* Hero Stats (always visible at bottom) */}
-      <section className="bg-gradient-to-br from-[#10192F] to-[#192F6B] py-24 text-white">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-           {[
-             { label: "AVERAGE GROWTH", value: "92%" },
-             { label: "ALL INDIA RANKS", value: "15+" },
-             { label: "SELECTION RATE", value: "100%" }
-           ].map((stat, i) => (
-             <div key={i} className="flex flex-col items-center justify-center">
-               <p className="text-6xl md:text-7xl lg:text-8xl font-black italic tracking-tighter mb-4" style={{ fontFamily: "var(--font-display)" }}>
-                 {stat.value}
-               </p>
-               <p className="text-[10px] md:text-sm font-black text-white/80 uppercase tracking-[0.2em]">
-                 {stat.label}
-               </p>
-             </div>
-           ))}
-        </div>
-      </section>
 
       <CTABanner />
     </main>

@@ -86,25 +86,7 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Newsletter */}
-          <div className="lg:col-span-1">
-            <h4 className="text-xs font-bold tracking-widest text-[#64748B] mb-8">
-              NEWSLETTER
-            </h4>
-            <p className="text-sm text-gray-400 mb-6">
-              Stay updated with academic schedules &amp; scholarship news.
-            </p>
-            <div className="flex flex-col gap-3">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="bg-[#1E293B] border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-[#192F6B] outline-none transition-all"
-              />
-              <button className="bg-[#192F6B] hover:bg-[#192F6B]/80 text-white font-bold py-3 rounded-lg text-sm transition-all">
-                Subscribe
-              </button>
-            </div>
-          </div>
+
         </div>
 
         {/* Bottom bar */}

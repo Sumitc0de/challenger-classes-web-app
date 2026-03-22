@@ -4,6 +4,7 @@ import CourseCard from "@/components/CourseCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import SectionHeader from "@/components/SectionHeader";
 import CTABanner from "@/components/CTABanner";
+import HeroSlider from "@/components/HeroSlider";
 
 const courses = [
   {
@@ -159,20 +160,16 @@ export default function HomePage() {
 
             {/* Hero visual */}
             <div className="relative lg:block">
-              <div className="relative w-full aspect-square max-w-lg mx-auto group">
+              <div className="relative w-full aspect-video max-w-3xl mx-auto group">
                 {/* Decorative background glow */}
                 <div className="absolute -inset-4 bg-gradient-to-br from-[#192F6B]/20 to-transparent rounded-[3rem] blur-2xl group-hover:scale-110 transition-transform duration-700" />
                 
-                <div className="relative bg-white p-2 rounded-[3rem] shadow-2xl shadow-[#192F6B]/10 overflow-hidden border-2 border-border group-hover:border-[#192F6B]/30 transition-all duration-500">
-                  <img
-                    src="/hero_img.png"
-                    alt="Challenger Classes Hero"
-                    className="w-full h-full object-cover rounded-[2.5rem] group-hover:scale-105 transition-transform duration-1000"
-                  />
+                <div className="relative bg-white p-2 rounded-[3rem] shadow-2xl shadow-[#192F6B]/10 overflow-hidden border-2 border-border group-hover:border-[#192F6B]/30 transition-all duration-500 h-full">
+                  <HeroSlider />
                 </div>
                 
                 {/* Floating badge */}
-                <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-border hidden md:block animate-bounce-slow">
+                <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-border hidden md:block animate-bounce-slow z-30">
                   <p className="text-[10px] font-black text-[#192F6B] uppercase tracking-widest mb-1">Success Rate</p>
                   <p className="text-3xl font-black text-[#10192F] italic uppercase tracking-tighter">98.5%</p>
                 </div>

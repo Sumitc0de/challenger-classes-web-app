@@ -104,26 +104,6 @@ export default function GalleryPage() {
 
       </div>
 
-      {/* Stats Bar */}
-      <section className="bg-gradient-to-br from-[#10192F] to-[#192F6B] py-20 text-white">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6 text-center">
-          {[
-            { label: "Seminars Conducted", value: "500+" },
-            { label: "Captured Moments", value: "12k+" },
-            { label: "Awards Won", value: "15" },
-            { label: "Years of Legacy", value: "20+" }
-          ].map((stat, i) => (
-            <div key={i} className="flex flex-col items-center justify-center">
-              <p className="text-5xl md:text-6xl lg:text-7xl font-black italic tracking-tighter mb-2" style={{ fontFamily: "var(--font-display)" }}>
-                {stat.value}
-              </p>
-              <p className="text-[8px] md:text-[10px] font-black text-white/80 uppercase tracking-[0.2em]">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
 
     </main>
   );
