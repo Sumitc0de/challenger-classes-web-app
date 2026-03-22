@@ -202,9 +202,47 @@ export default function ConceptsPage() {
                 </div>
               )}
 
-              <p className="text-[11px] text-gray-500 font-bold uppercase tracking-widest leading-relaxed mt-auto">
-                {c.description}
-              </p>
+              <div className="flex flex-col flex-grow justify-end">
+                <p className="text-[11px] text-gray-500 font-bold uppercase tracking-widest leading-relaxed mt-auto mb-5">
+                  {c.description}
+                </p>
+                
+                <div className="pt-4 border-t border-black/5 flex justify-end">
+                  {c.images && c.images.length > 0 ? (
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        c.images!.forEach((img, idx) => {
+                          setTimeout(() => {
+                            const a = document.createElement("a");
+                            a.href = img.src || img;
+                            a.download = `${c.title.replace(/\s+/g, '_')}${c.images!.length > 1 ? `_part${idx+1}` : ''}.png`;
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                          }, idx * 200);
+                        });
+                      }}
+                      className="flex z-10 items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 bg-[#192F6B] text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-[#10192F] hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                    >
+                      <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                      </svg>
+                      Download{c.images.length > 1 ? " All" : ""}
+                    </button>
+                  ) : (
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        alert("Stay tuned! Premium modules launching soon.");
+                      }}
+                      className="flex z-10 items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 bg-gray-200 text-gray-700 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-gray-300 hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                    >
+                      Read Module
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
           ))}
         </div>

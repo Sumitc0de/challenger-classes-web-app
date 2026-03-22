@@ -228,9 +228,51 @@ export default function FormulasPage() {
                 </div>
               )}
 
-              <p className="text-[11px] text-gray-500 font-bold uppercase tracking-widest leading-relaxed mt-auto">
-                {f.description}
-              </p>
+              <div className="flex flex-col flex-grow justify-end">
+                <p className="text-[11px] text-gray-500 font-bold uppercase tracking-widest leading-relaxed mt-auto mb-5">
+                  {f.description}
+                </p>
+                
+                <div className="pt-4 border-t border-black/5 flex justify-end">
+                  {f.images && f.images.length > 0 ? (
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        f.images!.forEach((img, idx) => {
+                          setTimeout(() => {
+                            const a = document.createElement("a");
+                            a.href = img.src || img;
+                            a.download = `${f.title.replace(/\s+/g, '_')}${f.images!.length > 1 ? `_part${idx+1}` : ''}.png`;
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                          }, idx * 200);
+                        });
+                      }}
+                      className="flex z-10 items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 bg-[#192F6B] text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-[#10192F] hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                    >
+                      <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                      </svg>
+                      Download{f.images.length > 1 ? " All" : ""}
+                    </button>
+                  ) : (
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigator.clipboard.writeText(f.latex || "");
+                        alert("Equation copied to clipboard!");
+                      }}
+                      className="flex z-10 items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 bg-gray-900 text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-black hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                    >
+                      <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                      </svg>
+                      Copy Formula
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
           ))}
         </div>
