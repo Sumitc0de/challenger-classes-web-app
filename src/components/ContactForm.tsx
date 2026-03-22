@@ -14,7 +14,22 @@ export default function ContactForm() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // In production, send to API
+    
+    // Construct WhatsApp Message
+    const text = `Hello Challenger Classes!
+    
+*Name:* ${form.name}
+*Phone:* ${form.phone}
+*I am a:* ${form.role}
+*Class:* ${form.class}
+*Message:* ${form.message || "N/A"}`;
+
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/919021296376?text=${encodedText}`;
+
+    // Open WhatsApp
+    window.open(whatsappUrl, "_blank");
+
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
     setForm({ name: "", phone: "", class: "", message: "", role: "student" });

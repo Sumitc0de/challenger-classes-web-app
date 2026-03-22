@@ -13,7 +13,11 @@ const toppers = [
   { name: "Suman Ray", score: "Selected", exam: "NEET UG", year: "2025", initials: "SR", image: "/gallery/toppers/suman_ray_neet_topper.png" },
   { name: "Vijay Gaud", score: "Selected", exam: "NEET UG", year: "2025", initials: "VG", image: "/gallery/toppers/vijay_gaud_neet_topper.png" },
   { name: "Harsh Jaiswal", score: "244 Marks", exam: "CA Found.", year: "2026", initials: "HJ", image: "/gallery/toppers/harsh_jaiswal_ca_foundation_topper_244_marks.png" },
-
+  { name: "Sameer Baghel", score: "95.20%ile", exam: "Competitive Exam", year: "2025", initials: "SB" },
+  { name: "Ankush Pandey", score: "93.00%ile", exam: "Competitive Exam", year: "2025", initials: "AP" },
+  { name: "Varun Yadav", score: "92.67%ile", exam: "Competitive Exam", year: "2025", initials: "VY" },
+  { name: "Ashish Chauhan", score: "91.28%ile", exam: "Competitive Exam", year: "2025", initials: "AC" },
+  { name: "Nihal Tiwari", score: "91.00%ile", exam: "Competitive Exam", year: "2025", initials: "NT" },
 ];
 
 const highlights = [

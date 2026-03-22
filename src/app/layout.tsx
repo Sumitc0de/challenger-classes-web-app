@@ -85,7 +85,7 @@ export default function RootLayout({
                 longitude: "72.8274831295814",
               },
               openingHours: "Mo-Sa 08:00-19:00",
-              telephone: "+91-98765-43210",
+              telephone: "+91-90212-96376",
               url: "https://challengerclasses.com",
               areaServed: ["Nalasopara East", "Achole Road", "Palghar", "Mumbai"],
             }),
