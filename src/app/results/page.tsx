@@ -81,16 +81,16 @@ export default function ResultsPage() {
                   </div>
                   
                   {/* Content Box (on the right for desktop, bottom for mobile) */}
-                  <div className="flex-1 p-8 md:p-12 flex flex-col justify-center bg-white">
+                  <div className="flex-1 p-8 md:py-12 md:pr-12 md:pl-4 flex flex-col justify-center bg-white overflow-hidden">
                      <div className="flex items-center gap-3 mb-4">
                        <span className="text-primary/90 text-[10px] font-black tracking-widest uppercase px-3 py-1 bg-primary/5 rounded-full">{featuredMain.exam} - {featuredMain.year}</span>
                      </div>
-                     <h2 className="text-4xl md:text-5xl font-black text-primary mb-2 tracking-tight">{featuredMain.name}</h2>
+                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary mb-2 tracking-tight leading-[1.1]">{featuredMain.name}</h2>
                      <div className="flex flex-col sm:flex-row sm:items-end gap-1 sm:gap-4">
                        <p className="text-6xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[#F97316] to-[#ea580c] leading-none" style={{ fontFamily: "var(--font-display)" }}>
                          {featuredMain.score}
                        </p>
-                       <span className="text-primary/80 font-bold mb-3 uppercase tracking-widest text-[10px]">{featuredMain.exam} Qualifier</span>
+                       <span className="text-primary/80 font-bold mb-3 uppercase tracking-widest text-[10px] whitespace-nowrap">{featuredMain.exam} Qualifier</span>
                      </div>
                   </div>
                 </div>
