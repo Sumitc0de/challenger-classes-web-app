@@ -2,111 +2,292 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Script from "next/script";
 import CTABanner from "@/components/CTABanner";
+import OptimizedImage from "@/components/OptimizedImage";
 
-// Import local image assets
-import diffImg from "@/assets/notes/12th_differentiation_formulas.png";
-import intImg from "@/assets/notes/12th_integration_formulas.png";
-import logicImg from "@/assets/notes/12th_mathematical_logic_formulas.png";
-import matricesImg from "@/assets/notes/12th_matrices_formulas.png";
-import trigFormulasImg from "@/assets/notes/12th_trigonometry_formulas.png";
-import trigUnitCircleImg from "@/assets/notes/12th_trigonometry_unitcircle.png";
-
-import acImg from "@/assets/notes/12th_ac.png";
-import electrostaticsImg from "@/assets/notes/12th_electrostatics.png";
-
-import organicImg from "@/assets/notes/12th_organic_chemistry.png";
-import polymerImg from "@/assets/notes/12th_polymer_formulas.png";
-import solidStateImg from "@/assets/notes/12th_solid_state.png";
-
-const categories = ["All", "Maths", "Physics", "Chemistry", "Algebra", "Geometry"];
+const categories = ["All", "Maths", "Physics", "Chemistry"];
 
 type Formula = {
   title: string;
   category: string;
   description: string;
   color: string;
-  latex?: string;
-  images?: any[];
+  images?: string[];
 };
 
 const formulas: Formula[] = [
   {
-    title: "12th Trigonometry Master Sheet",
-    category: "Maths",
-    images: [trigFormulasImg, trigUnitCircleImg],
-    description: "Complete set of trigonometric identities, formulas, and the unit circle.",
-    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
-  },
-  {
-    title: "12th Differentiation Rules",
-    category: "Maths",
-    images: [diffImg],
-    description: "Complete list of differentiation formulas and derivatives for 12th standard.",
-    color: "bg-blue-50 text-blue-700 border-blue-200 hover:border-blue-400 hover:shadow-blue-500/20"
-  },
-  {
-    title: "12th Integration Formulas",
-    category: "Maths",
-    images: [intImg],
-    description: "All integration formulas, standard forms, and application rules.",
-    color: "bg-indigo-50 text-indigo-700 border-indigo-200 hover:border-indigo-400 hover:shadow-indigo-500/20"
-  },
-  {
-    title: "12th Mathematical Logic",
-    category: "Maths",
-    images: [logicImg],
-    description: "Truth tables, logical equivalences, and boolean algebra rules.",
-    color: "bg-sky-50 text-sky-700 border-sky-200 hover:border-sky-400 hover:shadow-sky-500/20"
-  },
-  {
-    title: "12th Matrices properties",
-    category: "Maths",
-    images: [matricesImg],
-    description: "Types of matrices, operations, determinants, and properties.",
-    color: "bg-teal-50 text-teal-700 border-teal-200 hover:border-teal-400 hover:shadow-teal-500/20"
-  },
-  {
-    title: "12th Alternating Current",
+    title: "12th Ac Formulas",
     category: "Physics",
-    images: [acImg],
-    description: "Formulas and phasor diagrams for AC circuits and resonance.",
-    color: "bg-amber-50 text-amber-700 border-amber-200 hover:border-amber-400 hover:shadow-amber-500/20"
-  },
-  {
-    title: "12th Electrostatics",
-    category: "Physics",
-    images: [electrostaticsImg],
-    description: "Electric field, potential, Gauss's law, and capacitance formulas.",
+    images: ["formulas/physics/ac-class-12-maharashtra.jpg"],
+    description: "Complete and important ac formulas for Class 12 Maharashtra Board HSC students.",
     color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
   },
   {
-    title: "12th Organic Chemistry",
+    title: "12th Chemistry Chemical Kinetics Formulas",
     category: "Chemistry",
-    images: [organicImg],
-    description: "Reaction mechanisms, nomenclature rules, and key reagents.",
+    images: ["formulas/chemistry/chemistry-chemical-kinetics-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important chemistry chemical kinetics formulas for Class 12 Maharashtra Board HSC students.",
     color: "bg-rose-50 text-rose-700 border-rose-200 hover:border-rose-400 hover:shadow-rose-500/20"
   },
   {
-    title: "12th Polymer Chemistry",
+    title: "12th Chemistry Chemical Thermodynamics Formulas",
     category: "Chemistry",
-    images: [polymerImg],
-    description: "Types of polymers, monomers, classification, and uses.",
-    color: "bg-pink-50 text-pink-700 border-pink-200 hover:border-pink-400 hover:shadow-pink-500/20"
+    images: ["formulas/chemistry/chemistry-chemical-thermodyanics-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important chemistry chemical thermodynamics formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-rose-50 text-rose-700 border-rose-200 hover:border-rose-400 hover:shadow-rose-500/20"
   },
   {
-    title: "12th Solid State",
+    title: "12th Chemistry Electrochemistry Formulas",
     category: "Chemistry",
-    images: [solidStateImg],
-    description: "Crystal structures, unit cell dimensions, and defects in solids.",
-    color: "bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200 hover:border-fuchsia-400 hover:shadow-fuchsia-500/20"
+    images: ["formulas/chemistry/chemistry-electrochemistry-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important chemistry electrochemistry formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-rose-50 text-rose-700 border-rose-200 hover:border-rose-400 hover:shadow-rose-500/20"
   },
-
+  {
+    title: "12th Chemistry Ionic Equilibrium Formulas",
+    category: "Chemistry",
+    images: ["formulas/chemistry/chemistry-ionic-equilibrium-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important chemistry ionic equilibrium formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-rose-50 text-rose-700 border-rose-200 hover:border-rose-400 hover:shadow-rose-500/20"
+  },
+  {
+    title: "12th Chemistry Solutions Formulas",
+    category: "Chemistry",
+    images: ["formulas/chemistry/chemistry-solutions-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important chemistry solutions formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-rose-50 text-rose-700 border-rose-200 hover:border-rose-400 hover:shadow-rose-500/20"
+  },
+  {
+    title: "12th Differentiation Formulas",
+    category: "Maths",
+    images: ["formulas/maths/differentiation-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important differentiation formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Electrostatics Formulas",
+    category: "Physics",
+    images: ["formulas/physics/electrostatics-class-12-maharashtra.jpg"],
+    description: "Complete and important electrostatics formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Mathematical Logic Formulas",
+    category: "Maths",
+    images: ["formulas/maths/mathematical-logic-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important mathematical logic formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Application of Definite Integration Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-application-definite-integration-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important application of definite integration formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Application of Derivatives Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-application-of-derivatives-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important application of derivatives formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Binomial Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-binomial-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important binomial distribution formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Definite Integration Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-definite-integration-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important definite integration formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Differential Equation Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-differntial-equation-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important differential equation formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Indefinite Integration Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-indefinite-integration-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important indefinite integration formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths LPP Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-lpp-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important linear programming problem (LPP) formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Pair of Lines Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-pair-of-line-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important pair of straight lines formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Plane Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-plane-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important three-dimensional plane formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Probability Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-probability-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important probability distribution formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Vector 1 Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-vector-1-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important vector algebra part 1 formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Maths Vector 2 Formulas",
+    category: "Maths",
+    images: ["formulas/maths/maths-vector-2-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important vector algebra part 2 formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Matrices Formulas",
+    category: "Maths",
+    images: ["formulas/maths/matrices-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important matrices formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Organic Chemistry Formulas",
+    category: "Chemistry",
+    images: ["formulas/chemistry/organic-chemistry-class-12-maharashtra.jpg"],
+    description: "Complete and important organic chemistry formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-rose-50 text-rose-700 border-rose-200 hover:border-rose-400 hover:shadow-rose-500/20"
+  },
+  {
+    title: "12th Physics Current Electricity Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-current-eletricity-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important current electricity formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Physics Dual Nature of Matter Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-dualnature-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important dual nature of radiation and matter formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Physics Electromagnetic Induction Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-eletromagnetic-induction-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important electromagnetic induction formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Physics Fluids Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-fluids-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important mechanical properties of fluids formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Physics KTG Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-ktg-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important kinetic theory of gases (KTG) formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Physics Magnetic Field Due to Current Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-magnetic-field-duetocurrent-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important magnetic field due to electric current formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Physics Oscillations Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-osciillations-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important oscillations and SHM formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Physics Rotational Dynamics Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-rotational-dynamics-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important rotational dynamics formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Physics Structure of Atoms Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-structure-atoms'-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important structure of atoms formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Physics Superposition of Waves Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-superposition-waves-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important superposition of waves formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Physics Thermodynamics Formulas",
+    category: "Physics",
+    images: ["formulas/physics/physics-thermodynaimics-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important thermodynamics formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-orange-50 text-orange-700 border-orange-200 hover:border-orange-400 hover:shadow-orange-500/20"
+  },
+  {
+    title: "12th Polymer Formulas",
+    category: "Chemistry",
+    images: ["formulas/chemistry/polymer-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important polymer chemistry formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-rose-50 text-rose-700 border-rose-200 hover:border-rose-400 hover:shadow-rose-500/20"
+  },
+  {
+    title: "12th Solid State Formulas",
+    category: "Chemistry",
+    images: ["formulas/chemistry/solid-state-class-12-maharashtra.jpg"],
+    description: "Complete and important solid state chemistry formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-rose-50 text-rose-700 border-rose-200 hover:border-rose-400 hover:shadow-rose-500/20"
+  },
+  {
+    title: "12th Trigonometry Formulas",
+    category: "Maths",
+    images: ["formulas/maths/trigonometry-formulas-class-12-maharashtra.jpg"],
+    description: "Complete and important trigonometry formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  },
+  {
+    title: "12th Trigonometry Unit Circle Formulas",
+    category: "Maths",
+    images: ["formulas/maths/trigonometry-unitcircle-class-12-maharashtra.jpg"],
+    description: "Complete and important trigonometry unit circle formulas for Class 12 Maharashtra Board HSC students.",
+    color: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-400 hover:shadow-purple-500/20"
+  }
 ];
 
 export default function FormulasPage() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedImages, setSelectedImages] = useState<any[] | null>(null);
+  const [selectedImages, setSelectedImages] = useState<string[] | null>(null);
   const [scale, setScale] = useState(100);
 
   useEffect(() => {
@@ -127,8 +308,27 @@ export default function FormulasPage() {
     ? formulas
     : formulas.filter(f => f.category === activeCategory);
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Challenger Classes Formula Hub — Class 12 Maharashtra Board",
+    "description": "Complete collection of 38 important formula cheat sheets for Maths, Physics, and Chemistry — Class 12 Maharashtra Board HSC.",
+    "url": "https://challengerclasses.com/formulas",
+    "image": formulas.map(f => ({
+      "@type": "ImageObject",
+      "contentUrl": `https://ik.imagekit.io/akpxh7r76/${f.images?.[0]}`,
+      "name": f.title,
+      "description": f.description
+    }))
+  };
+
   return (
     <main className="min-h-screen bg-bg pt-24 pb-16 relative">
+      <Script
+        id="formulas-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
 
         {/* Header */}
@@ -165,7 +365,7 @@ export default function FormulasPage() {
           {filteredFormulas.map((f, i) => (
             <div
               key={i}
-              className={`group bg-white rounded-[2rem] p-6 border-2 transition-all duration-500 relative flex flex-col hover:-translate-y-2 hover:shadow-2xl ${f.color.split(' ').filter(c => c.startsWith('hover:') || c.startsWith('border-')).join(' ')}`}
+              className={`group bg-white rounded-[2rem] p-6 border-2 transition-all duration-500 relative flex flex-col hover:-translate-y-2 hover:shadow-2xl ${f.color.split(' ').filter((c: string) => c.startsWith('hover:') || c.startsWith('border-')).join(' ')}`}
             >
               <div className="mb-5 flex justify-between items-start">
                 <span className="px-3 py-1 bg-black/5 rounded-full text-[9px] font-black text-[#192F6B] uppercase tracking-[0.2em]">
@@ -178,7 +378,7 @@ export default function FormulasPage() {
                 )}
               </div>
 
-              <h3 className="text-xl font-black text-[#10192F] uppercase italic tracking-tighter mb-4 pr-4">
+              <h3 className="text-xl font-black text-[#10192F] uppercase mb-4 pr-4">
                 {f.title}
               </h3>
 
@@ -187,13 +387,14 @@ export default function FormulasPage() {
                   className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 cursor-pointer border border-black/10 group/img shadow-inner bg-gray-100 flex items-center justify-center"
                   onClick={() => setSelectedImages(f.images || null)}
                 >
-                  <Image
+                  <OptimizedImage
                     src={f.images[0]}
                     alt={f.title}
+                    title={"Complete " + f.title + " Cheat Sheet"}
+                    caption={"All Important " + f.title + " - Class 12"}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover/img:scale-105"
-                    placeholder="blur"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-sm gap-2">
                     <span className="px-4 py-2 bg-white text-[#192F6B] rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl flex items-center gap-2 transform translate-y-2 group-hover/img:translate-y-0 transition-transform duration-300">
@@ -206,13 +407,7 @@ export default function FormulasPage() {
                     )}
                   </div>
                 </div>
-              ) : (
-                <div className={`flex-1 p-6 rounded-2xl border flex items-center justify-center mb-6 font-mono text-lg font-bold min-h-[160px] text-center shadow-inner ${f.color.split(' ').filter(c => !c.startsWith('hover:') && !c.startsWith('border-')).join(' ')}`}>
-                  <div className="italic tracking-wider px-2">
-                    {f.latex}
-                  </div>
-                </div>
-              )}
+              ) : null}
 
               <div className="flex flex-col flex-grow justify-end">
                 <p className="text-[11px] text-gray-500 font-bold uppercase tracking-widest leading-relaxed mt-auto mb-5">
@@ -224,15 +419,22 @@ export default function FormulasPage() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        f.images!.forEach((img, idx) => {
-                          setTimeout(() => {
+                        f.images!.forEach(async (img, idx) => {
+                          try {
+                            const response = await fetch(`https://ik.imagekit.io/akpxh7r76/${img}`);
+                            const blob = await response.blob();
+                            const url = window.URL.createObjectURL(blob);
                             const a = document.createElement("a");
-                            a.href = img.src || img;
-                            a.download = `${f.title.replace(/\s+/g, '_')}${f.images!.length > 1 ? `_part${idx + 1}` : ''}.png`;
+                            a.href = url;
+                            const ext = img.split('.').pop();
+                            a.download = `${f.title.replace(/\s+/g, '_')}${f.images!.length > 1 ? `_part${idx + 1}` : ''}.${ext}`;
                             document.body.appendChild(a);
                             a.click();
                             document.body.removeChild(a);
-                          }, idx * 200);
+                            window.URL.revokeObjectURL(url);
+                          } catch (error) {
+                            console.error("Error downloading image:", error);
+                          }
                         });
                       }}
                       className="flex z-10 items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 bg-[#192F6B] text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-[#10192F] hover:shadow-lg hover:-translate-y-0.5 transition-all"
@@ -242,21 +444,7 @@ export default function FormulasPage() {
                       </svg>
                       Download{f.images.length > 1 ? " All" : ""}
                     </button>
-                  ) : (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        navigator.clipboard.writeText(f.latex || "");
-                        alert("Equation copied to clipboard!");
-                      }}
-                      className="flex z-10 items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 bg-gray-900 text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-black hover:shadow-lg hover:-translate-y-0.5 transition-all"
-                    >
-                      <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                      </svg>
-                      Copy Formula
-                    </button>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -298,11 +486,12 @@ export default function FormulasPage() {
                       Page {i + 1} of {selectedImages.length}
                     </div>
                   )}
-                  <Image
+                  <OptimizedImage
                     src={img}
                     alt={`Formula Fullscreen Page ${i + 1}`}
+                    width={1200}
+                    height={1600}
                     className="w-full h-auto object-contain rounded-xl shadow-2xl bg-white"
-                    unoptimized
                   />
                 </div>
               ))}
