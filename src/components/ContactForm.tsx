@@ -25,7 +25,7 @@ export default function ContactForm() {
 *Message:* ${form.message || "N/A"}`;
 
     const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/919021296376?text=${encodedText}`;
+    const whatsappUrl = `https://wa.me/918446288679?text=${encodedText}`;
 
     // Open WhatsApp
     window.open(whatsappUrl, "_blank");

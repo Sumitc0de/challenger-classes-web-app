@@ -1,7 +1,7 @@
 "use client";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "919021296376";
+  const phoneNumber = "918446288679";
   const message = "Hi Challenger Classes, I'm interested in your coaching programs. Can you please provide more information?";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
